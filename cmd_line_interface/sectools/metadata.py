@@ -1,0 +1,1 @@
+"""Sectools metadata."""

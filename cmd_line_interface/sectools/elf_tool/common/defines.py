@@ -1,0 +1,1 @@
+"""ELF tool common defines."""
