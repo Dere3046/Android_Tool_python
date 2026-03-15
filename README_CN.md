@@ -4,7 +4,9 @@
 
 ## 什么是 AndroidTOOL？
 
-基于反编译分析的 Qualcomm sectools.exe 功能的 Python 实现。
+AndroidTOOL 是基于反编译分析的 Qualcomm sectools.exe 功能的 Python 开源实现，用于解析、签名、加密和验证启动镜像（MBN/ELF），与原始工具完全兼容。目前支持 secure_image、mbn_tool 和 elf_tool 模块。
+
+> **注意：** 此 Python 版本已停止更新，后续维护将集中在 Rust 版本，详见 [Android_Tool_RUST](https://github.com/Dere3046/Android_Tool_RUST)。
 
 ## 作用
 

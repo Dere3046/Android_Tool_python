@@ -4,7 +4,9 @@
 
 ## What is AndroidTOOL?
 
-A Python implementation of Qualcomm sectools.exe functionality based on decompilation analysis.
+AndroidTOOL is a Python-based open-source reimplementation of Qualcomm's sectools.exe for parsing, signing, encrypting, and verifying boot images (MBN/ELF), fully compatible with the original tool. Currently supports secure_image, mbn_tool, and elf_tool modules.
+
+> **Note:** This Python version is no longer actively maintained. Future development will focus on the Rust version, available at [Android_Tool_RUST](https://github.com/Dere3046/Android_Tool_RUST).
 
 ## Features
 
