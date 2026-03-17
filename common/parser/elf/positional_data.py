@@ -1,84 +1,84 @@
 """
-ELF位置数据基类
-基于反编译分析实现
+ELF positional data base class.
+Based on decompiled analysis.
 """
 
 from typing import Any, Optional, Union
 
 
 class AbstractPositionalData:
-    """抽象位置数据类"""
-    
+    """Abstract positional data class."""
+
     def __init__(self, data=None, check_is_type=None, bypass_validation=False):
-        """初始化位置数据
-        
+        """Initialize positional data.
+
         Args:
-            data: 原始数据
-            check_is_type: 检查类型
-            bypass_validation: 是否跳过验证
+            data: Raw data
+            check_is_type: Check type
+            bypass_validation: Skip validation
         """
         self._data = data
         self.ignore = False
-        
+
     def offset(self) -> int:
-        """获取偏移量"""
+        """Get offset."""
         raise NotImplementedError
-        
+
     def size(self) -> int:
-        """获取大小"""
+        """Get size."""
         raise NotImplementedError
-        
+
     def alignment(self) -> int:
-        """获取对齐方式"""
+        """Get alignment."""
         raise NotImplementedError
-        
+
     def address(self) -> int:
-        """获取地址"""
+        """Get address."""
         raise NotImplementedError
-        
+
     def mem_size(self) -> int:
-        """获取内存大小"""
+        """Get memory size."""
         raise NotImplementedError
-        
+
     def is_loadable(self) -> bool:
-        """是否可加载"""
+        """Is loadable."""
         return False
-        
+
     def is_uie_encryptable(self) -> bool:
-        """是否可UIE加密"""
+        """Is UIE encryptable."""
         return False
-        
+
     def is_qbec_encryptable(self) -> bool:
-        """是否可QBEC加密"""
+        """Is QBEC encryptable."""
         return False
-        
+
     def is_encryptable(self) -> bool:
-        """是否可加密"""
+        """Is encryptable."""
         return self.is_uie_encryptable() or self.is_qbec_encryptable()
-        
+
     def data_name(self) -> str:
-        """数据名称"""
+        """Data name."""
         return ""
-        
+
     def is_to_be_ignored(self) -> bool:
-        """是否应忽略"""
+        """Should be ignored."""
         return False
-        
+
     def validate_before_operation(self, **kwargs) -> None:
-        """操作前验证"""
+        """Validate before operation."""
         pass
 
 
 class PositionalData(AbstractPositionalData):
-    """位置数据实现类"""
-    
+    """Positional data implementation."""
+
     def __init__(self, data=None, check_is_type=None, bypass_validation=False):
-        """初始化位置数据
-        
+        """Initialize positional data.
+
         Args:
-            data: 原始数据
-            check_is_type: 检查类型
-            bypass_validation: 是否跳过验证
+            data: Raw data
+            check_is_type: Check type
+            bypass_validation: Skip validation
         """
         super().__init__(data, check_is_type, bypass_validation)
         self._offset = 0
@@ -86,27 +86,27 @@ class PositionalData(AbstractPositionalData):
         self._alignment = 0
         self._address = 0
         self._mem_size = 0
-        
+
     def offset(self) -> int:
-        """获取偏移量"""
+        """Get offset."""
         return self._offset
-        
+
     def size(self) -> int:
-        """获取大小"""
+        """Get size."""
         return self._size
-        
+
     def alignment(self) -> int:
-        """获取对齐方式"""
+        """Get alignment."""
         return self._alignment
-        
+
     def address(self) -> int:
-        """获取地址"""
+        """Get address."""
         return self._address
-        
+
     def mem_size(self) -> int:
-        """获取内存大小"""
+        """Get memory size."""
         return self._mem_size
 
     def end(self) -> int:
-        """获取结束偏移"""
+        """Get end offset."""
         return self.offset() + self.size()

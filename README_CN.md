@@ -1,37 +1,80 @@
-# AndroidTOOL
+# AndroidTOOL - 高通安全工具 (Python)
 
 [English](README.md) | [中文](README_CN.md)
 
-## 什么是 AndroidTOOL？
-
-AndroidTOOL 是基于反编译分析的 Qualcomm sectools.exe 功能的 Python 开源实现，用于解析、签名、加密和验证启动镜像（MBN/ELF），与原始工具完全兼容。目前支持 secure_image、mbn_tool 和 elf_tool 模块。
-
 > **注意：** 此 Python 版本已停止更新，后续维护将集中在 Rust 版本，详见 [Android_Tool_RUST](https://github.com/Dere3046/Android_Tool_RUST)。
 
-## 作用
-
-- 解析和生成 Qualcomm 启动镜像（MBN、ELF）
-- 检查、签名、加密和验证安全镜像
-- 与 sectools.exe 输出兼容
+基于反编译分析的 Qualcomm sectools.exe 功能的 Python 实现。
 
 ## 项目结构
 
 ```
-reconstructed/
-├── common/          通用工具和解析器
-│   ├── data/       数据工具
-│   ├── logging/    日志模块
-│   └── parser/     文件格式解析器
-│       ├── elf/               ELF 解析器 (32/64 位)
-│       ├── elf_with_hash_segment/  带哈希表的 ELF
-│       └── mbn/               MBN 解析器 (v3-v8)
-├── core/           核心工具实现
-│   ├── elf_tool/   ELF 操作
-│   ├── mbn_tool/   MBN 操作
-│   └── secure_image/  安全镜像操作
-└── profile/        安全配置
+common/
+├── crypto/
+│   └── openssl/       # OpenSSL 加密操作
+├── data/              # 数据工具
+├── logging/           # 日志模块
+└── parser/            # 文件格式解析器
+    ├── elf/           # ELF 解析器
+    ├── mbn/           # MBN 解析器
+    └── hash_segment/  # 哈希段定义
+
+core/
+├── elf_tool/          # ELF 操作
+├── mbn_tool/          # MBN 操作
+├── hash_sign_core.py  # 哈希和签名核心
+└── secure_image/      # 安全镜像操作
+    ├── signer/        # 签名器类
+    └── encrypter/     # 加密器类
+
+profile/               # 安全配置
 ```
+
+## 功能特性
+
+### ELF 工具
+- 解析和生成 ELF32/ELF64 镜像
+- 插入段、合并文件、删除段
+- 哈希表段支持
+
+### MBN 工具
+- 解析 MBN 镜像 (v3-v8)
+- 生成 MBN 镜像
+- 启动镜像 ID 和目标指针支持
+
+### 安全镜像
+- 检查、验证、签名、哈希、加密、压缩
+- LOCAL/TEST/PLUGIN 签名模式
+- UIE/QBEC 加密模式
+- 12 种 SHA 哈希变体
+- X.509 证书支持
+- Fuse blower 验证
+- Outfile 记录管理
+
+### 支持的算法
+
+**签名:** ECDSA-P256, ECDSA-P384, RSA-2048/3072/4096
+
+**哈希:** SHA256/384/512, ONE-SHOT 变体，ZI 变体
+
+**加密:** AES-128-CBC, UIE, QBEC
+
+## 依赖
+
+- Python 3.9+
+- cryptography 库
 
 ## 许可证
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件。
+MIT License - 详见 [LICENSE](LICENSE) 文件。
+
+## 免责声明
+
+**仅供研究和教育目的使用**
+
+本软件仅供安全研究、教育目的和逆向工程分析使用。用户有责任确保遵守所有适用的法律法规。作者不对本软件的任何滥用承担责任。
+
+本工具不应用于：
+- 任何非法活动
+
+用户对本软件的使用承担所有责任和风险。

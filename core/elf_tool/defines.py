@@ -18,7 +18,7 @@ from cmd_line_interface.sectools.cmd_line_common.auto_close_image_type import Au
 from common.parser.elf.defines import (
     PT_DESCRIPTION, PT_LOAD, PT_NOTE, PT_NULL,
     ELFCLASS32, ELFCLASS64,
-    EM_ARM, EM_INT_TO_DESCRIPTION, EM_INT_TO_STRING,
+    EM_ARM, EM_INT_TO_STRING,
     EM_STRING_TO_INT
 )
 from common.parser.elf.elf import ELF

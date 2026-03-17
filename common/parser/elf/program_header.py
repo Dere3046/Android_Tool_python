@@ -1,6 +1,6 @@
 """
-ELF程序头模块
-基于反编译分析实现
+ELF program header module.
+Based on decompiled analysis.
 """
 
 from typing import Dict, Type, Union

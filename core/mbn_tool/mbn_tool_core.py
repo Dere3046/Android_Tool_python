@@ -34,12 +34,21 @@ class MBNToolCore(CoreInterface):
         mbn_version = parsed_args.get('version', 3)
         data_file = parsed_args.get('data')
         outfile = parsed_args.get('outfile')
+        boot_image_id = parsed_args.get('boot_image_id')
+        image_dest_ptr = parsed_args.get('image_dest_ptr')
+        data_size_alignment = parsed_args.get('data_size_alignment')
 
         with open(data_file, 'rb') as f:
             code = memoryview(f.read())
 
         mbn = MBN()
-        mbn.create_default(mbn_version, code)
+        mbn.create_default(
+            mbn_version,
+            code,
+            boot_image_id=boot_image_id,
+            image_dest_ptr=image_dest_ptr,
+            data_size_alignment=data_size_alignment,
+        )
 
         packed = mbn.pack()
 

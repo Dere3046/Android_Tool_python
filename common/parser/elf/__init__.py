@@ -1,3 +1,3 @@
 """
-ELF解析器模块
+ELF parser module.
 """

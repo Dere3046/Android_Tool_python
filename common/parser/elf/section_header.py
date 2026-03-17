@@ -1,6 +1,6 @@
 """
-ELF节头模块
-基于反编译分析实现
+ELF section header module.
+Based on decompiled analysis.
 """
 
 from typing import Dict, Type, Union

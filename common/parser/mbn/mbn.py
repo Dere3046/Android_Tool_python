@@ -60,47 +60,66 @@ class MBN(HashTableSegmentCommon, ImageInfoInterface):
         self,
         mbn_version: int,
         code: Union[memoryview, bytearray],
+        boot_image_id: Optional[int] = None,
+        image_dest_ptr: Optional[int] = None,
+        data_size_alignment: Optional[int] = None,
         **kwargs: Any,
     ) -> None:
-        """Create default MBN image."""
-        self.code = code
+        """Create default MBN image.
+        
+        Args:
+            mbn_version: MBN version (3, 5, 6, 7, or 8)
+            code: Code/data to include
+            boot_image_id: Boot image ID (v3 only)
+            image_dest_ptr: Image destination pointer (v3 only)
+            data_size_alignment: Data size alignment value
+        """
+        # Apply alignment if specified
+        code_bytes = bytes(code)
+        if data_size_alignment and data_size_alignment > 0:
+            aligned_size = ((len(code_bytes) + data_size_alignment - 1) // data_size_alignment) * data_size_alignment
+            if aligned_size > len(code_bytes):
+                code_bytes = code_bytes + b'\x00' * (aligned_size - len(code_bytes))
+        
+        self.code = memoryview(code_bytes)
+        
         if self.header is None:
             if mbn_version in MBN_HEADER_CLASSES:
                 header_class = MBN_HEADER_CLASSES[mbn_version]
                 self.header = header_class()
 
                 if mbn_version == HASH_SEGMENT_V3:
-                    self.header.boot_image_id = 0
+                    self.header.boot_image_id = boot_image_id if boot_image_id is not None else 0
                     self.header.version = 3
                     self.header.image_src = 0
-                    self.header.image_dest_ptr = 0
-                    self.header.image_size = len(code)
-                    self.header.code_size = len(code)
-                    self.header.sig_ptr = len(code)
+                    self.header.image_dest_ptr = image_dest_ptr if image_dest_ptr is not None else 0
+                    self.header.image_size = len(code_bytes)
+                    self.header.code_size = len(code_bytes)
+                    self.header.sig_ptr = len(code_bytes)
                     self.header.sig_size = 0
-                    self.header.cert_chain_ptr = len(code)
+                    self.header.cert_chain_ptr = len(code_bytes)
                     self.header.cert_chain_size = 0
                 elif mbn_version == HASH_SEGMENT_V5:
                     self.header.image_id = 0
                     self.header.version = 5
                     self.header.image_src = 0
                     self.header.image_dest_ptr = 0
-                    self.header.image_size = len(code)
-                    self.header.code_size = len(code)
-                    self.header.sig_ptr = len(code)
+                    self.header.image_size = len(code_bytes)
+                    self.header.code_size = len(code_bytes)
+                    self.header.sig_ptr = len(code_bytes)
                     self.header.sig_size = 0
-                    self.header.cert_chain_ptr = len(code)
+                    self.header.cert_chain_ptr = len(code_bytes)
                     self.header.cert_chain_size = 0
                 elif mbn_version == HASH_SEGMENT_V6:
                     self.header.image_id = 0
                     self.header.version = 6
                     self.header.image_src = 0
                     self.header.image_dest_ptr = 0
-                    self.header.image_size = len(code)
-                    self.header.code_size = len(code)
-                    self.header.sig_ptr = len(code)
+                    self.header.image_size = len(code_bytes)
+                    self.header.code_size = len(code_bytes)
+                    self.header.sig_ptr = len(code_bytes)
                     self.header.sig_size = 0
-                    self.header.cert_chain_ptr = len(code)
+                    self.header.cert_chain_ptr = len(code_bytes)
                     self.header.cert_chain_size = 0
                     self.header.qti_sig_size = 0
                     self.header.qti_cert_chain_size = 0
