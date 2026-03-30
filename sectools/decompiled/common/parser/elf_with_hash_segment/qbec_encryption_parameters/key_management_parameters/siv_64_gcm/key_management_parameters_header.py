@@ -1,0 +1,9 @@
+
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.defines import KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_64_GCM
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.key_management_parameters.gcm.key_management_parameters_header import KeyManagementParametersHeaderGCM
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.key_management_parameters.permissive_feature_id_handler import PermissiveFeatureIDHandler
+
+class KeyManagementParametersHeaderSIV64GCM(KeyManagementParametersHeaderGCM, PermissiveFeatureIDHandler):
+    CLASS_KEY_MANAGEMENT_SCHEME_ID = KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_64_GCM
+    CLASS_TYPE_STRING = 'QBEC ECDH P384 HKDF SIV 64 GCM Key Management Parameters'
+

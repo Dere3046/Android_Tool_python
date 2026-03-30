@@ -1,0 +1,5 @@
+
+from typing import TypeAlias
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.key_management_parameters.gcm.key_management_parameters_header import KeyManagementParametersHeaderGCM
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.key_management_parameters.xts.key_management_parameters_header import KeyManagementParametersHeaderXTS
+KeyManagementParametersHeader: TypeAlias = KeyManagementParametersHeaderGCM | KeyManagementParametersHeaderXTS

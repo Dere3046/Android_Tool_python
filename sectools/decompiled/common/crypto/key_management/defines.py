@@ -1,0 +1,7 @@
+
+from common.data.defines import PAD_BYTE_0
+SALT = PAD_BYTE_0 * 64
+DIVERSIFIER_LABEL_LENGTH = 128
+BSVE = b' \x00\x00\x00'
+KEY_LENGTH = b'\x00\x02\x00\x00'
+PUBLIC_KEY_LENGTH = 48

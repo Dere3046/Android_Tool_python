@@ -1,0 +1,2 @@
+
+NUM_RESERVED = 32

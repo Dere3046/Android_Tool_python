@@ -1,0 +1,9 @@
+
+from typing import Type, TypeAlias
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.data_encryption_parameters.gcm.data_encryption_parameters_header import DataEncryptionParametersHeaderGCM
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.data_encryption_parameters.xts.data_encryption_parameters_header import DataEncryptionParametersHeaderXTS
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.defines import AES_128_XTS, ELF_SEGMENT_AES_GCM
+DataEncryptionParametersHeader: TypeAlias = DataEncryptionParametersHeaderGCM | DataEncryptionParametersHeaderXTS
+DATA_ENCRYPTION_HEADER_CLASSES: dict[(str, Type[DataEncryptionParametersHeader])] = {
+    AES_128_XTS: DataEncryptionParametersHeaderXTS,
+    ELF_SEGMENT_AES_GCM: DataEncryptionParametersHeaderGCM }

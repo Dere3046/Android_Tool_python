@@ -1,0 +1,22 @@
+
+from contextlib import suppress
+from typing import Type
+from cmd_line_interface.base_defines import get_cmd_member
+from cmd_line_interface.basecmdline import NamespaceWithGet
+from cmd_line_interface.sectools.cmd_line_common.base_defines import ENCRYPTION_MODE, ENCRYPT_THEN_SIGN, LOCAL, QTI, SECURITY_PROFILE
+from cmd_line_interface.sectools.secure_image.defines import DEVICE_NONCE, DEVICE_PRIVATE_KEY, DEVICE_PUBLIC_KEY, ENCRYPTION_ORDER, FEATURE_ID, L1_KEY, L2_KEY, L3_KEY, ROOT_KEY_TYPE, ENCRYPTED_SEGMENT_INDEX, DATA_ENCRYPTION_KEY
+from common.data.data import and_separated, hex_val
+from common.logging.logger import log_debug
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.defines import DATA_ENCRYPTION_SCHEME_DESCRIPTION_TO_ID, DATA_ENCRYPTION_SCHEME_ID_AES_128_XTS, DATA_ENCRYPTION_SCHEME_ID_ELF_SEGMENT_AES_GCM, GCM_GCM, KEY_MANAGEMENT_FEATURE_DESCRIPTION_TO_ID, KEY_MANAGEMENT_SCHEME_DESCRIPTION_TO_ID, KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_64_GCM, KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_CMAC_GCM, KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_GCM, KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_GCM_2, KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_XTS, KEY_MANAGEMENT_SCHEME_ID_GCM_GCM, ELF_SEGMENT_AES_GCM
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.qbec import DATA_ENCRYPTION_PARAMETER_CLASSES, KEY_MANAGEMENT_PARAMETER_CLASSES
+from common.parser.hash_segment.defines import AUTHORITY_OEM
+from core.profile_validator.defines import ENCRYPTED_THEN_SIGNED, QBEC, UIE
+from core.secure_image.encrypter.qbec.local.block_encryption.block_encrypter import BlockEncrypter
+from core.secure_image.encrypter.qbec.local.segment_encryption.gcm_gcm_segment_encrypter import GCMGCMSegmentEncrypter
+from core.secure_image.encrypter.qbec.local.segment_encryption.segment_encrypter import SegmentEncrypter
+from profile.schema import EncryptionFormat
+NONPUBLIC_UIE_ONLY_ENCRYPTION_ARGUMENTS = []
+with suppress(ModuleNotFoundError):
+    from cmd_line_interface.nonpublic.nonpublic_defines import NONPUBLIC_UIE_ONLY_ENCRYPTION_ARGUMENTS
+    None(None, None, None)
+# WARNING: Decompyle incomplete
