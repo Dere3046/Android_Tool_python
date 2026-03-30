@@ -1,3 +1,0 @@
-"""
-ELF parser module.
-"""

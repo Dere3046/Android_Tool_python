@@ -1,1 +1,0 @@
-"""Reconstructed module."""

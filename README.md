@@ -2,78 +2,91 @@
 
 [English](README.md) | [中文](README_CN.md)
 
-> **Note:** This Python version is no longer actively maintained. Future development will focus on the Rust version, available at [Android_Tool_RUST](https://github.com/Dere3046/Android_Tool_RUST).
+> **Note:** This Python version has been discontinued. Future maintenance will focus on the Rust version. See [Android_Tool_RUST](https://github.com/Dere3046/Android_Tool_RUST).
 
-Python implementation of Qualcomm sectools.exe functionality based on decompiled analysis.
+~~Qualcomm sectools.exe functionality implementation based on decompilation analysis.~~
 
-## Project Structure
+## ~~Project Structure~~
 
-```
+~~```
 common/
 ├── crypto/
-│   └── openssl/       # OpenSSL crypto operations
-├── data/              # Data utilities
+│   └── openssl/       # OpenSSL encryption operations
+├── data/              # Data tools
 ├── logging/           # Logging module
-└── parser/            # File format parsers
+└── parser/            # File format parser
     ├── elf/           # ELF parser
     ├── mbn/           # MBN parser
-    └── hash_segment/  # Hash segment defines
+    └── hash_segment/  # Hash segment definitions
 
 core/
 ├── elf_tool/          # ELF operations
 ├── mbn_tool/          # MBN operations
-├── hash_sign_core.py  # Hash and sign core
+├── hash_sign_core.py  # Hash and signature core
 └── secure_image/      # Secure image operations
-    ├── signer/        # Signer classes
-    └── encrypter/     # Encrypter classes
+    ├── signer/        # Signer class
+    └── encrypter/     # Encrypter class
 
-profile/               # Security profiles
-```
+profile/               # Security profile
+```~~
 
-## Features
+## ~~Features~~
 
-### ELF Tool
-- Parse and generate ELF32/ELF64 images
-- Insert segments, combine files, remove sections
-- Hash table segment support
+### ~~ELF Tools~~
+- ~~Parse and generate ELF32/ELF64 images~~
+- ~~Insert segments, merge files, delete segments~~
+- ~~Hash table segment support~~
 
-### MBN Tool
-- Parse and generate MBN images (v3-v8)
-- Boot image ID and destination pointer support
+### ~~MBN Tools~~
+- ~~Parse MBN images (v3-v8)~~
+- ~~Generate MBN images~~
+- ~~Boot image ID and target pointer support~~
 
-### Secure Image
-- Inspect, validate, sign, hash, encrypt, compress
-- LOCAL/TEST/PLUGIN signing modes
-- UIE/QBEC encryption modes
-- 12 SHA hash variants
-- X.509 certificate support
-- Fuse blower validation
-- Outfile record management
+### ~~Secure Image~~
+- ~~Check, verify, sign, hash, encrypt, compress~~
+- ~~LOCAL/TEST/PLUGIN signature modes~~
+- ~~UIE/QBEC encryption modes~~
+- ~~12 SHA hash variants~~
+- ~~X.509 certificate support~~
+- ~~Fuse blower verification~~
+- ~~Outfile record management~~
 
-### Supported Algorithms
+### ~~Supported Algorithms~~
 
-**Signature:** ECDSA-P256, ECDSA-P384, RSA-2048/3072/4096
+**~~Signature:~~** ~~ECDSA-P256, ECDSA-P384, RSA-2048/3072/4096~~
 
-**Hash:** SHA256/384/512, ONE-SHOT variants, ZI variants
+**~~Hash:~~** ~~SHA256/384/512, ONE-SHOT variants, ZI variants~~
 
-**Encryption:** AES-128-CBC, UIE, QBEC
+**~~Encryption:~~** ~~AES-128-CBC, UIE, QBEC~~
 
-## Requirements
+## ~~Dependencies~~
 
-- Python 3.9+
-- cryptography library
+~~- Python 3.9+~~
+~~- cryptography library~~
 
-## License
+## ~~License~~
 
-MIT License - See [LICENSE](LICENSE) file for details.
+~~MIT License - See [LICENSE](LICENSE) file.~~
 
-## Disclaimer
+## ~~Disclaimer~~
 
-**FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY**
+**~~For research and educational purposes only~~**
 
-This software is provided for security research, educational purposes, and reverse engineering analysis only. Users are responsible for ensuring compliance with all applicable laws and regulations. The authors disclaim all liability for any misuse of this software.
+~~This software is intended for security research, educational purposes, and reverse engineering analysis only. Users are responsible for ensuring compliance with all applicable laws and regulations. The authors assume no responsibility for any misuse of this software.~~
 
-This tool should NOT be used for:
-- Any illegal activities
+~~This tool should not be used for:~~
+- ~~Any illegal activities~~
 
-Users assume all responsibility and risk for their use of this tool.
+~~Users assume all responsibility and risk for the use of this software.~~
+
+---
+
+## ~~Original Content Removed~~
+
+~~The original content of this document has been removed as it is no longer applicable.~~
+
+**Note:** I initially discovered this tool on XDA. It was only available as an EXE binary, and I originally believed it was not open-source, so I decompiled it. Later, I discovered that it is actually open-source.
+
+**Source Repository:** https://github.com/basehub/sectools
+
+**Therefore, to ensure completeness, I have cloned the entire project.**
