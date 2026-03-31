@@ -1,0 +1,134 @@
+
+from __future__ import annotations
+
+def cryptography_has_set_cert_cb():
+    return [
+        'SSL_CTX_set_cert_cb',
+        'SSL_set_cert_cb']
+
+
+def cryptography_has_ssl_st():
+    return [
+        'SSL_ST_BEFORE',
+        'SSL_ST_OK',
+        'SSL_ST_INIT',
+        'SSL_ST_RENEGOTIATE']
+
+
+def cryptography_has_tls_st():
+    return [
+        'TLS_ST_BEFORE',
+        'TLS_ST_OK']
+
+
+def cryptography_has_ssl_sigalgs():
+    return [
+        'SSL_CTX_set1_sigalgs_list']
+
+
+def cryptography_has_psk():
+    return [
+        'SSL_CTX_use_psk_identity_hint',
+        'SSL_CTX_set_psk_server_callback',
+        'SSL_CTX_set_psk_client_callback']
+
+
+def cryptography_has_psk_tlsv13():
+    return [
+        'SSL_CTX_set_psk_find_session_callback',
+        'SSL_CTX_set_psk_use_session_callback',
+        'Cryptography_SSL_SESSION_new',
+        'SSL_CIPHER_find',
+        'SSL_SESSION_set1_master_key',
+        'SSL_SESSION_set_cipher',
+        'SSL_SESSION_set_protocol_version']
+
+
+def cryptography_has_custom_ext():
+    return [
+        'SSL_CTX_add_client_custom_ext',
+        'SSL_CTX_add_server_custom_ext',
+        'SSL_extension_supported']
+
+
+def cryptography_has_tlsv13_functions():
+    return [
+        'SSL_VERIFY_POST_HANDSHAKE',
+        'SSL_CTX_set_ciphersuites',
+        'SSL_verify_client_post_handshake',
+        'SSL_CTX_set_post_handshake_auth',
+        'SSL_set_post_handshake_auth',
+        'SSL_SESSION_get_max_early_data',
+        'SSL_write_early_data',
+        'SSL_read_early_data',
+        'SSL_CTX_set_max_early_data']
+
+
+def cryptography_has_engine():
+    return [
+        'ENGINE_by_id',
+        'ENGINE_init',
+        'ENGINE_finish',
+        'ENGINE_get_default_RAND',
+        'ENGINE_set_default_RAND',
+        'ENGINE_unregister_RAND',
+        'ENGINE_ctrl_cmd',
+        'ENGINE_free',
+        'ENGINE_get_name',
+        'ENGINE_ctrl_cmd_string',
+        'ENGINE_load_builtin_engines',
+        'ENGINE_load_private_key',
+        'ENGINE_load_public_key',
+        'SSL_CTX_set_client_cert_engine']
+
+
+def cryptography_has_verified_chain():
+    return [
+        'SSL_get0_verified_chain']
+
+
+def cryptography_has_srtp():
+    return [
+        'SSL_CTX_set_tlsext_use_srtp',
+        'SSL_set_tlsext_use_srtp',
+        'SSL_get_selected_srtp_profile']
+
+
+def cryptography_has_op_no_renegotiation():
+    return [
+        'SSL_OP_NO_RENEGOTIATION']
+
+
+def cryptography_has_dtls_get_data_mtu():
+    return [
+        'DTLS_get_data_mtu']
+
+
+def cryptography_has_ssl_cookie():
+    return [
+        'SSL_OP_COOKIE_EXCHANGE',
+        'DTLSv1_listen',
+        'SSL_CTX_set_cookie_generate_cb',
+        'SSL_CTX_set_cookie_verify_cb']
+
+
+def cryptography_has_prime_checks():
+    return [
+        'BN_prime_checks_for_size']
+
+
+def cryptography_has_unexpected_eof_while_reading():
+    return [
+        'SSL_R_UNEXPECTED_EOF_WHILE_READING']
+
+
+def cryptography_has_ssl_op_ignore_unexpected_eof():
+    return [
+        'SSL_OP_IGNORE_UNEXPECTED_EOF']
+
+
+def cryptography_has_get_extms_support():
+    return [
+        'SSL_get_extms_support']
+
+# WARNING: Decompyle incomplete

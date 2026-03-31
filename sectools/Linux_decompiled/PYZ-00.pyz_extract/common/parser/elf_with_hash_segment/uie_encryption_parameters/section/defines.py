@@ -1,0 +1,6 @@
+
+FLAGS = 121
+FLAGS_DESCRIPTION = {
+    FLAGS: 't=16, q=2, n=13' }
+NONCE_SIZE = 13
+Q_VALUE = 16

@@ -1,0 +1,8 @@
+
+from typing import Type
+from common.parser.fuse_validator_payload.payload_request.payload_request import FuseValidatorPayloadRequest
+from common.parser.fuse_validator_payload.payload_response.payload_response_header import FuseValidatorPayloadResponseHeader
+
+class FuseValidatorPayloadResponse(FuseValidatorPayloadRequest):
+    HEADER_CLASS: Type[FuseValidatorPayloadResponseHeader] = FuseValidatorPayloadResponseHeader
+

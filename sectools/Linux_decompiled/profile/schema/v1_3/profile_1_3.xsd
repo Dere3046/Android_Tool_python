@@ -1,0 +1,1135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:tns="http://www.qualcomm.com/sectools"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.qualcomm.com/sectools">
+
+    <element name="profile">
+        <complexType>
+            <all>
+                <element name="platform_binding_values" type="tns:platform_binding_values"/>
+                <element name="authentication" type="tns:authentication" minOccurs="0"/>
+                <element name="debugging" type="tns:debugging" minOccurs="0"/>
+                <element name="fuse_blowing" type="tns:fuse_blowing" minOccurs="0"/>
+            </all>
+            <attribute name="id" type="string" use="required"/>
+            <!-- An error will be raised by Sectools if the defined version is greater than the version of Sectools
+            consuming the Profile. This prevents scenarios where a Profile which depends on a new feature of Sectools is
+            provided to an old version of Sectools which lacks support for the new feature -->
+            <attribute name="minimum_sectools_version" type="tns:version" use="required"/>
+            <attribute name="schema_version" type="tns:version" use="required"/>
+        </complexType>
+    </element>
+
+    <complexType name="platform_binding_values">
+        <all>
+            <element name="soc_hw_versions" type="tns:soc_hw_versions" minOccurs="0"/>
+            <element name="jtag_ids" type="tns:jtag_ids" minOccurs="0"/>
+            <element name="soc_feature_ids" type="tns:soc_feature_ids" minOccurs="0"/>
+        </all>
+    </complexType>
+
+    <complexType name="soc_hw_versions">
+        <sequence>
+            <element name="value" type="tns:soc_hw_version" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="soc_hw_version">
+        <simpleContent>
+            <extension base="tns:four_char_hex">
+                <attribute name="variant" type="tns:id"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="jtag_ids">
+        <sequence>
+            <element name="value" type="tns:jtag_id" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="jtag_id">
+        <simpleContent>
+            <extension base="tns:seven_char_hex">
+                <attribute name="variant" type="tns:id" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="soc_feature_ids">
+        <sequence>
+            <element name="value" type="tns:soc_feature_id" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="soc_feature_id">
+        <simpleContent>
+            <extension base="tns:two_char_hex">
+                <attribute name="variant" type="tns:id" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="authentication">
+        <all>
+            <element name="image_list" type="tns:image_list"/>
+            <element name="authenticators" type="tns:authenticators"/>
+        </all>
+    </complexType>
+
+    <complexType name="image_list">
+        <sequence>
+            <element name="image" type="tns:image" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="image">
+        <all>
+            <element name="sw_id" type="tns:eight_char_hex"/>
+            <!-- This ID is used to determine which image_format will be used for image. If no value is specified, the
+            auth platform's default_image_format will be used -->
+            <element name="image_format" type="tns:id" minOccurs="0"/>
+        </all>
+        <!-- This ID is used to determine how to interpret the provided image file. It maps to the IMAGE_ID argument on
+        the command line interface. For example should the provided image be treated as TZ, XBL, or TA? -->
+        <attribute name="id" type="tns:id" use="required"/>
+        <!-- This ID is used to determine which authenticator's restrictions will apply to the image -->
+        <attribute name="authenticator_oem" type="tns:id"/>
+        <attribute name="authenticator_qti" type="tns:id"/>
+    </complexType>
+
+    <complexType name="authenticators">
+        <sequence>
+            <element name="authenticator" type="tns:authenticator" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="authenticator">
+        <all>
+            <element name="supported_image_formats" type="tns:image_formats" minOccurs="0"/>
+            <element name="default_image_format" type="tns:id" minOccurs="0"/>
+            <element name="supported_oem_signing_features" type="tns:signing_features" minOccurs="0"/>
+            <element name="supported_qti_signing_features" type="tns:signing_features" minOccurs="0"/>
+            <element name="supported_encryption_features" type="tns:encryption_features" minOccurs="0"/>
+        </all>
+        <attribute name="id" type="tns:id" use="required"/>
+        <!-- This is used to determine which authenticator's restrictions should be inherited by the current
+        authenticator -->
+        <attribute name="parent_authenticator" type="tns:id"/>
+    </complexType>
+
+    <complexType name="image_formats">
+        <sequence>
+            <element name="image_format" type="tns:image_format" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="image_format">
+        <all>
+            <element name="file_type">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="MBN"/>
+                        <enumeration value="ELF"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="elf_properties" type="tns:elf_properties" minOccurs="0"/>
+            <element name="hash_table_segment_properties" type="tns:hash_table_segment_properties" minOccurs="0"/>
+            <element name="vouch_segment_properties" type="tns:vouch_segment_properties" minOccurs="0"/>
+            <element name="license_manager_segment_properties" type="tns:license_manager_segment_properties"
+                     minOccurs="0"/>
+            <element name="mbn_properties" type="tns:mbn_properties" minOccurs="0"/>
+        </all>
+        <attribute name="id" type="tns:id" use="required"/>
+    </complexType>
+
+    <complexType name="elf_properties">
+        <all>
+            <element name="elf_class" type="tns:elf_classes"/>
+            <element name="contains_preamble" type="boolean"/>
+        </all>
+    </complexType>
+
+    <complexType name="hash_table_segment_properties">
+        <all>
+            <element name="hash_table_segment_placements" type="tns:hash_table_segment_placements"/>
+            <element name="hash_table_segment_alignment" type="tns:sixteen_char_hex"/>
+            <element name="hash_pages" type="boolean"/>
+            <element name="segment_hash_algorithms" type="tns:segment_hash_algorithms"/>
+            <element name="hash_table_segment_version" type="tns:hash_table_segment_version"/>
+            <element name="hash_table_segment_metadata_versions" type="tns:hash_table_segment_metadata_versions"
+                     minOccurs="0"/>
+            <element name="hash_table_segment_common_metadata_versions"
+                     type="tns:hash_table_segment_common_metadata_versions" minOccurs="0"/>
+        </all>
+    </complexType>
+
+    <simpleType name="hash_algorithm">
+        <restriction base="string">
+            <enumeration value="SHA256"/>
+            <enumeration value="SHA384"/>
+            <enumeration value="SHA512"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="segment_placement">
+        <restriction base="string">
+            <enumeration value="START"/>
+            <enumeration value="END"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="segment_placement_any">
+        <restriction base="string">
+            <enumeration value="START"/>
+            <enumeration value="END"/>
+            <enumeration value="ANY"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="hash_table_segment_placements">
+        <all>
+            <element name="default_hash_table_segment_placement" type="tns:segment_placement"/>
+            <element name="supported_hash_table_segment_placements">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:segment_placement_any" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="segment_hash_algorithms">
+        <all>
+            <element name="default_segment_hash_algorithm" type="tns:hash_algorithm"/>
+            <element name="supported_segment_hash_algorithms">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:hash_algorithm" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="hash_table_segment_version">
+        <restriction base="integer">
+            <enumeration value="3"/>
+            <enumeration value="5"/>
+            <enumeration value="6"/>
+            <enumeration value="7"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="hash_table_segment_metadata_version">
+        <restriction base="string">
+            <enumeration value="0.0"/>
+            <enumeration value="1.0"/>
+            <enumeration value="2.0"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="hash_table_segment_metadata_versions">
+        <all>
+            <element name="default_hash_table_segment_metadata_version" type="tns:hash_table_segment_metadata_version"/>
+            <element name="supported_hash_table_segment_metadata_versions">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:hash_table_segment_metadata_version" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="hash_table_segment_common_metadata_version">
+        <restriction base="string">
+            <enumeration value="0.0"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="hash_table_segment_common_metadata_versions">
+        <all>
+            <element name="default_hash_table_segment_common_metadata_version" type="tns:hash_table_segment_common_metadata_version"/>
+            <element name="supported_hash_table_segment_common_metadata_versions">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:hash_table_segment_common_metadata_version"
+                                 maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="vouch_segment_placements">
+        <all>
+            <element name="default_vouch_segment_placement" type="tns:segment_placement"/>
+            <element name="supported_vouch_segment_placements">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:segment_placement_any" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="vouch_segment_authority">
+        <restriction base="string">
+            <enumeration value="OEM"/>
+            <enumeration value="QTI"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="vouch_segment_properties">
+        <all>
+            <element name="vouch_segment_version" type="tns:vouch_segment_version"/>
+            <element name="max_entry_count" type="positiveInteger"/>
+            <element name="vouch_segment_hash_algorithms" type="tns:vouch_segment_hash_algorithms"/>
+            <element name="phy_addr" type="tns:sixteen_char_hex"/>
+            <element name="vouch_segment_placements" type="tns:vouch_segment_placements"/>
+            <element name="vouch_segment_alignment" type="tns:sixteen_char_hex"/>
+        </all>
+    </complexType>
+
+    <simpleType name="vouch_segment_version">
+        <restriction base="integer">
+            <enumeration value="0"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="vouch_segment_hash_algorithms">
+        <all>
+            <element name="default_vouch_segment_hash_algorithm" type="tns:hash_algorithm"/>
+            <element name="supported_vouch_segment_hash_algorithms">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:hash_algorithm" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="license_manager_segment_placements">
+        <all>
+            <element name="default_license_manager_segment_placement" type="tns:segment_placement"/>
+            <element name="supported_license_manager_segment_placements">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:segment_placement_any" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="license_manager_segment_properties">
+        <all>
+            <element name="license_manager_segment_version" type="tns:license_manager_segment_version"/>
+            <element name="license_manager_segment_placements" type="tns:license_manager_segment_placements"/>
+            <element name="license_manager_segment_alignment" type="tns:sixteen_char_hex"/>
+        </all>
+    </complexType>
+
+    <simpleType name="license_manager_segment_version">
+        <restriction base="integer">
+            <enumeration value="0"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="mbn_properties">
+        <all>
+            <element name="mbn_version" type="tns:mbn_version"/>
+            <element name="mbn_metadata_versions" type="tns:mbn_metadata_versions" minOccurs="0"/>
+            <element name="mbn_common_metadata_versions" type="tns:mbn_common_metadata_versions" minOccurs="0"/>
+        </all>
+    </complexType>
+
+    <simpleType name="mbn_version">
+        <restriction base="integer">
+            <enumeration value="3"/>
+            <enumeration value="5"/>
+            <enumeration value="6"/>
+            <enumeration value="7"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="mbn_metadata_version">
+        <restriction base="string">
+            <enumeration value="0.0"/>
+            <enumeration value="1.0"/>
+            <enumeration value="2.0"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="mbn_metadata_versions">
+        <all>
+            <element name="default_mbn_metadata_version" type="tns:mbn_metadata_version"/>
+            <element name="supported_mbn_metadata_versions">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:mbn_metadata_version"
+                                 maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="mbn_common_metadata_version">
+        <restriction base="string">
+            <enumeration value="0.0"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="mbn_common_metadata_versions">
+        <all>
+            <element name="default_mbn_common_metadata_version" type="tns:mbn_common_metadata_version"/>
+            <element name="supported_mbn_common_metadata_versions">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:mbn_common_metadata_version"
+                                 maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="signing_features">
+        <all>
+            <element name="supports_vouch_for" type="boolean"/>
+            <element name="default_signature_format" type="tns:id"/>
+            <element name="signature_formats" type="tns:signature_formats"/>
+            <element name="serial_bind" type="tns:serial_bound_feature"/>
+            <element name="debug" type="tns:serial_bound_feature"/>
+            <element name="uie_key_switch_enable" type="tns:serial_bound_feature"/>
+            <element name="root_revoke_activation_enable" type="tns:serial_bound_feature"/>
+            <element name="supports_root_revoke_activation_enable_as_combined" type="boolean"/>
+            <element name="crash_dump" type="tns:serial_bound_feature"/>
+            <element name="supports_oem_id_product_id_independent" type="boolean"/>
+            <element name="supports_anti_rollback_version" type="boolean"/>
+            <element name="mrc_specs" type="tns:mrc_specs" minOccurs="0"/>
+            <element name="certificate_chain_depths" type="tns:certificate_chain_depths"/>
+            <element name="platform_bindings" type="tns:platform_bindings"/>
+            <element name="requires_secondary_software_id" type="boolean"/>
+            <element name="requires_feature_id" type="boolean"/>
+            <element name="supported_measurement_register_targets" type="tns:measurement_register_targets"
+                     minOccurs="0"/>
+            <element name="supported_soc_lifecycle_states" type="tns:soc_lifecycle_states" minOccurs="0"/>
+            <element name="supported_oem_lifecycle_states" type="tns:oem_lifecycle_states" minOccurs="0"/>
+            <element name="supported_oem_rch_algorithms" type="tns:oem_rch_algorithms" minOccurs="0"/>
+        </all>
+    </complexType>
+
+    <complexType name="signature_formats">
+        <sequence>
+            <element name="signature_format" type="tns:signature_format" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="signature_format">
+        <all>
+            <element name="signature_algorithm" type="tns:signature_algorithm"/>
+            <element name="signature_hash_algorithms" type="tns:signature_hash_algorithms"/>
+            <!-- Only applicable when signature_algorithm is set to rsa -->
+            <element name="rsa_paddings" type="tns:rsa_paddings" minOccurs="0"/>
+            <!-- Only applicable when signature_algorithm is set to rsa -->
+            <element name="key_sizes" type="tns:key_sizes" minOccurs="0"/>
+            <!-- Only applicable when signature_algorithm is set to rsa -->
+            <element name="exponents" type="tns:exponents" minOccurs="0"/>
+            <!-- Only applicable when signature_algorithm is set to ecdsa -->
+            <element name="ecdsa_curves" type="tns:ecdsa_curves" minOccurs="0"/>
+        </all>
+        <attribute name="id" type="tns:id" use="required"/>
+    </complexType>
+
+    <simpleType name="signature_algorithm">
+        <restriction base="string">
+            <enumeration value="RSA"/>
+            <enumeration value="ECDSA"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="signature_hash_algorithms">
+        <all>
+            <element name="default_signature_hash_algorithm" type="tns:hash_algorithm"/>
+            <element name="supported_signature_hash_algorithms">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:hash_algorithm" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="rsa_padding">
+        <restriction base="string">
+            <enumeration value="PKCS"/>
+            <enumeration value="PSS"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="rsa_paddings">
+        <all>
+            <element name="default_rsa_padding" type="tns:rsa_padding"/>
+            <element name="supported_rsa_paddings">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:rsa_padding" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="key_size">
+        <restriction base="integer">
+            <enumeration value="2048"/>
+            <enumeration value="4096"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="key_sizes">
+        <all>
+            <element name="default_key_size" type="tns:key_size"/>
+            <element name="supported_key_sizes">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:key_size" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="exponent">
+        <restriction base="integer">
+            <enumeration value="3"/>
+            <enumeration value="257"/>
+            <enumeration value="65537"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="exponents">
+        <all>
+            <element name="default_exponent" type="tns:exponent"/>
+            <element name="supported_exponents">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:exponent" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="ecdsa_curve">
+        <restriction base="string">
+            <enumeration value="SECP256R1"/>
+            <enumeration value="SECP384R1"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="ecdsa_curves">
+        <all>
+            <element name="default_ecdsa_curve" type="tns:ecdsa_curve"/>
+            <element name="supported_ecdsa_curves">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:ecdsa_curve" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="serial_bound_feature">
+        <all>
+            <element name="supported" type="boolean"/>
+            <element name="supports_single_serial" type="boolean"/>
+            <element name="supports_multi_serials" type="boolean"/>
+        </all>
+    </complexType>
+
+    <simpleType name="mrc_spec">
+        <restriction base="string">
+            <enumeration value="1.0"/>
+            <enumeration value="2.0"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="mrc_specs">
+        <all>
+            <element name="default_mrc_spec" type="tns:mrc_spec"/>
+            <element name="supported_mrc_specs">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:mrc_spec" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="certificate_chain_depth">
+        <restriction base="integer">
+            <enumeration value="2"/>
+            <enumeration value="3"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="certificate_chain_depths">
+        <all>
+            <element name="default_certificate_chain_depth" type="tns:certificate_chain_depth"/>
+            <element name="supported_certificate_chain_depths">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:certificate_chain_depth" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="platform_binding">
+        <restriction base="string">
+            <enumeration value="INDEPENDENT"/>
+            <enumeration value="JTAG-ID"/>
+            <enumeration value="SOC-HW-VER"/>
+            <enumeration value="SOC-FEATURE-ID"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="platform_bindings">
+        <all>
+            <element name="supports_multiple_soc_ver" type="boolean" minOccurs="0" default="true"/>
+            <element name="default_platform_binding" type="tns:platform_binding"/>
+            <element name="supported_platform_bindings">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:platform_binding" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="encryption_features">
+        <all>
+            <element name="encryption_specs" type="tns:encryption_specs"/>
+            <element name="root_key_types" type="tns:root_key_types"/>
+            <element name="supports_encrypted_segment_indices" type="boolean" default="false"/>
+        </all>
+    </complexType>
+
+    <simpleType name="encryption_spec">
+        <restriction base="string">
+            <enumeration value="UIE-1.0-L2-1.0"/>
+            <enumeration value="UIE-1.0-L2-1.1"/>
+            <enumeration value="UIE-2.0-L2-1.2"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="encryption_specs">
+        <all>
+            <element name="default_encryption_spec" type="tns:encryption_spec"/>
+            <element name="supported_encryption_specs">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:encryption_spec" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="root_key_type">
+        <restriction base="string">
+            <enumeration value="RTL-QTI"/>
+            <enumeration value="OTP-OEM"/>
+            <enumeration value="OTP-QTI"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="root_key_types">
+        <all>
+            <element name="default_root_key_type" type="tns:root_key_type"/>
+            <element name="supported_root_key_types">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:root_key_type" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="measurement_register_target">
+        <restriction base="string">
+            <enumeration value="HMR1"/>
+            <enumeration value="HMR2"/>
+            <enumeration value="FMR1"/>
+            <enumeration value="FMR2"/>
+            <enumeration value="FMR3"/>
+            <enumeration value="FMR4"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="measurement_register_targets">
+        <sequence>
+            <element name="value" type="tns:measurement_register_target" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="soc_lifecycle_state">
+        <restriction base="string">
+            <enumeration value="OPERATIONAL-EXT"/>
+            <enumeration value="RMA"/>
+            <enumeration value="OPERATIONAL-INT"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="soc_lifecycle_states">
+        <sequence>
+            <element name="value" type="tns:soc_lifecycle_state" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="oem_lifecycle_state">
+        <restriction base="string">
+            <enumeration value="DEVELOPMENT"/>
+            <enumeration value="PRODUCTION"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="oem_lifecycle_states">
+        <sequence>
+            <element name="value" type="tns:oem_lifecycle_state" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="oem_rch_algorithms">
+        <sequence>
+            <element name="value" type="tns:hash_algorithm" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="debugging">
+        <all>
+            <element name="legacy" type="tns:legacy" minOccurs="0"/>
+            <element name="tme" type="tns:tme" minOccurs="0"/>
+        </all>
+    </complexType>
+
+    <complexType name="legacy">
+        <all>
+            <element name="oem_image_id" type="tns:id"/>
+            <element name="qti_image_id" type="tns:id"/>
+            <element name="debug_policy_revisions" type="tns:debug_policy_revisions"/>
+            <element name="phy_addr" type="tns:sixteen_char_hex"/>
+            <element name="debug_policy_segment_placements" type="tns:debug_policy_segment_placements"/>
+            <element name="debug_policy_segment_alignment" type="tns:sixteen_char_hex"/>
+            <element name="elf_class" type="tns:elf_classes"/>
+        </all>
+    </complexType>
+
+    <simpleType name="debug_policy_revision">
+        <restriction base="integer">
+            <enumeration value="1"/>
+            <enumeration value="2"/>
+            <enumeration value="3"/>
+            <enumeration value="4"/>
+            <enumeration value="5"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="debug_policy_revisions">
+        <all>
+            <element name="default_debug_policy_revision" type="tns:debug_policy_revision"/>
+            <element name="supported_debug_policy_revisions">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:debug_policy_revision" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="debug_policy_segment_placements">
+        <all>
+            <element name="default_debug_policy_segment_placement" type="tns:segment_placement"/>
+            <element name="supported_debug_policy_segment_placements">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:segment_placement_any" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="dpr_segment_placements">
+        <all>
+            <element name="default_dpr_segment_placement" type="tns:segment_placement"/>
+            <element name="supported_dpr_segment_placements">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:segment_placement_any" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="elf_class">
+        <restriction base="integer">
+            <enumeration value="32"/>
+            <enumeration value="64"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="elf_classes">
+        <all>
+            <element name="default_elf_class" type="tns:elf_class"/>
+            <element name="supported_elf_classes">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:elf_class" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="tme">
+        <all>
+            <element name="image_id" type="tns:id"/>
+            <element name="tme_version" type="integer"/>
+            <element name="oem_debug_policy_format" type="tns:oem_debug_policy_format"/>
+            <element name="tme_elf_properties" type="tns:tme_elf_properties" minOccurs="0"/>
+            <element name="command_version" type="tns:command_version"/>
+            <element name="seq_signing_algorithms" type="tns:seq_signing_algorithms"/>
+            <element name="test_signed_image_hash_algorithms" type="tns:test_signed_image_hash_algorithms"/>
+            <element name="seq_test_signed_image_hash_algorithms" type="tns:seq_test_signed_image_hash_algorithms"/>
+            <element name="fingerprint_hash_algorithms" type="tns:fingerprint_hash_algorithms"/>
+            <element name="supported_oem_rch_algorithms" type="tns:oem_rch_algorithms"/>
+            <element name="supported_oem_crash_dump_curves" type="tns:supported_ecdsa_curves"/>
+            <element name="debug_vector" type="tns:debug_vector"/>
+            <element name="subsystems" type="tns:subsystems"/>
+            <element name="allowed_test_signed_images" type="tns:allowed_test_signed_images"/>
+            <element name="allowed_test_signed_images_vector" type="tns:allowed_test_signed_images"/>
+            <element name="limits" type="tns:limits"/>
+        </all>
+    </complexType>
+
+    <complexType name="tme_elf_properties">
+        <all>
+            <element name="phy_addr" type="tns:sixteen_char_hex"/>
+            <element name="elf_classes" type="tns:elf_classes"/>
+            <element name="dpr_segment_placements" type="tns:dpr_segment_placements"/>
+            <element name="dpr_segment_alignment" type="tns:sixteen_char_hex"/>
+        </all>
+    </complexType>
+
+    <complexType name="supported_ecdsa_curves">
+        <sequence>
+            <element name="value" type="tns:ecdsa_curve" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="oem_debug_policy_format">
+        <restriction base="string">
+            <enumeration value="ELF"/>
+            <enumeration value="TME"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="hash_algorithms">
+        <sequence>
+            <element name="value" type="tns:hash_algorithm" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="test_signed_image_hash_algorithms">
+        <all>
+            <element name="default_test_signed_image_hash_algorithm" type="tns:hash_algorithm"/>
+            <element name="supported_test_signed_image_hash_algorithms" type="tns:hash_algorithms"/>
+        </all>
+    </complexType>
+
+    <complexType name="seq_test_signed_image_hash_algorithms">
+        <all>
+            <element name="default_test_signed_image_hash_algorithm" type="tns:hash_algorithm"/>
+            <element name="supported_test_signed_image_hash_algorithms" type="tns:hash_algorithms"/>
+        </all>
+    </complexType>
+
+    <complexType name="fingerprint_hash_algorithms">
+        <all>
+            <element name="default_fingerprint_hash_algorithm" type="tns:hash_algorithm"/>
+            <element name="supported_fingerprint_hash_algorithms" type="tns:hash_algorithms"/>
+        </all>
+    </complexType>
+
+    <complexType name="seq_signing_algorithms">
+        <all>
+            <element name="default_seq_signing_algorithm" type="string"/>
+            <element name="supported_seq_signing_algorithms">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="string" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="command_version">
+        <restriction base="string">
+            <enumeration value="1.0"/>
+            <enumeration value="1.1"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="debug_vector">
+        <sequence>
+            <element name="debug_vector_option" type="tns:debug_vector_option" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="subsystems">
+        <sequence>
+            <element name="subsystem" type="tns:subsystem" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="subsystem">
+        <all>
+            <element name="supported_debug_options" type="tns:supported_debug_options"/>
+        </all>
+        <attribute name="id" type="tns:tme_id" use="required"/>
+    </complexType>
+
+    <complexType name="supported_debug_options">
+        <sequence>
+            <element name="debug_option" type="tns:debug_option" maxOccurs="unbounded" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="value_list">
+        <sequence>
+            <element name="value" type="tns:tme_id" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="debug_vector_option">
+        <all>
+            <element name="bit" type="nonNegativeInteger"/>
+            <element name="description" type="string"/>
+            <element name="enabled_if_crash_dump_vector" type="tns:value_list" minOccurs="0"/>
+        </all>
+        <attribute name="id" type="tns:tme_id" use="required"/>
+    </complexType>
+
+    <complexType name="debug_option">
+        <all>
+            <element name="bit" type="nonNegativeInteger"/>
+            <element name="description" type="string"/>
+        </all>
+        <attribute name="id" type="tns:tme_id" use="required"/>
+    </complexType>
+
+    <complexType name="allowed_test_signed_images">
+        <sequence>
+            <element name="value" type="tns:tme_id" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="limits">
+        <sequence>
+            <element name="tag" type="tns:tag" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="tag">
+        <all>
+            <element name="byte_size" type="integer" minOccurs="0"/>
+            <element name="max_hash_array_length" type="integer" minOccurs="0"/>
+            <element name="not_used" minOccurs="0"/>
+        </all>
+        <attribute name="pointer" type="string" use="required"/>
+    </complexType>
+
+    <simpleType name="tme_id">
+        <restriction base="string">
+            <pattern value="[A-Z0-9]+([_][A-Z0-9]+)*"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="two_char_hex">
+        <restriction base="string">
+            <pattern value="0x0*[0-9a-fA-F]{2}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="four_char_hex">
+        <restriction base="string">
+            <pattern value="0x0*[0-9a-fA-F]{4}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="seven_char_hex">
+        <restriction base="string">
+            <pattern
+                    value="0x0*[0-9a-fA-F]{1,7}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="eight_char_hex">
+        <restriction base="string">
+            <pattern
+                    value="0x0*[0-9a-fA-F]{1,8}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="sixteen_char_hex">
+        <restriction base="string">
+            <pattern value="ANY|0x[0-9a-fA-F][0-9a-fA-F]{0,15}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="id">
+        <restriction base="string">
+            <pattern value="[A-Z0-9]+([\-][A-Z0-9]+)*"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="version">
+        <restriction base="string">
+            <pattern value="[1-9]+[0-9]*.[0-9]+[0-9]*"/>
+        </restriction>
+    </simpleType>
+
+        <complexType name="fuse_blowing">
+        <sequence>
+            <element name="image_id" type="tns:id" minOccurs="0"/>
+            <element name="fuse_regions" type="tns:fuse_regions"/>
+            <element name="sec_dat_properties" type="tns:sec_dat_properties" minOccurs="0"/>
+            <element name="sec_elf_properties" type="tns:sec_elf_properties" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="fuse_regions">
+        <sequence>
+            <element name="fuse_region" type="tns:fuse_region" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <complexType name="fuse_region">
+        <sequence>
+            <element name="fuse_row" type="tns:fuse_row" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="id" type="string" use="required"/>
+    </complexType>
+
+    <complexType name="fuse_row">
+        <sequence>
+            <element name="fuse" type="tns:fuse" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="address" type="tns:sixteen_char_hex" use="required"/>
+    </complexType>
+
+    <complexType name="fuse">
+        <all>
+            <element name="name" type="string"/>
+            <element name="description" type="string" minOccurs="0"/>
+            <element name="bits" type="tns:bits"/>
+            <element name="segment" type="tns:segment" minOccurs="0"/>
+        </all>
+    </complexType>
+
+    <simpleType name="bits">
+        <restriction base="string">
+            <pattern value="[0-9]+|[0-9]+:[0-9]+"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="segment">
+        <restriction base="string">
+            <enumeration value="efuse"/>
+            <enumeration value="keyprov"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="sec_dat_properties">
+        <all>
+            <element name="fuse_version" type="tns:fuse_version" minOccurs="0"/>
+            <element name="default_sec_dat_version" type="tns:sec_dat_version"/>
+            <element name="supported_sec_dat_versions">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:sec_dat_version" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <simpleType name="fuse_version">
+        <restriction base="integer">
+            <enumeration value="1"/>
+            <enumeration value="2"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="sec_dat_version">
+        <restriction base="integer">
+            <enumeration value="1"/>
+            <enumeration value="2"/>
+            <enumeration value="3"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="sec_dat_segment_versions">
+        <all>
+            <element name="default_sec_dat_segment_version" type="tns:sec_dat_version"/>
+            <element name="supported_sec_dat_segment_versions">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:sec_dat_version" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="sec_elf_properties">
+        <all>
+            <element name="elf_class" type="tns:elf_classes"/>
+            <element name="phy_addr" type="tns:sixteen_char_hex"/>
+            <element name="fuse_version" type="tns:fuse_version" minOccurs="0"/>
+            <element name="sec_dat_segment_versions" type="tns:sec_dat_segment_versions"/>
+            <element name="sec_dat_segment_placements" type="tns:sec_dat_segment_placements"/>
+            <element name="sec_dat_segment_alignment" type="tns:sixteen_char_hex"/>
+        </all>
+    </complexType>
+
+    <complexType name="sec_dat_segment_placements">
+        <all>
+            <element name="default_sec_dat_segment_placement" type="tns:segment_placement"/>
+            <element name="supported_sec_dat_segment_placements">
+                <complexType>
+                    <sequence>
+                        <element name="value" type="tns:segment_placement_any" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+</schema>

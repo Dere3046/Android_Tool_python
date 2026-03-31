@@ -1,0 +1,8 @@
+
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.defines import KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_GCM_2
+from common.parser.elf_with_hash_segment.qbec_encryption_parameters.key_management_parameters.gcm.key_management_parameters_header import KeyManagementParametersHeaderGCM
+
+class KeyManagementParametersHeaderGCM2(KeyManagementParametersHeaderGCM):
+    CLASS_KEY_MANAGEMENT_SCHEME_ID: int = KEY_MANAGEMENT_SCHEME_ID_ECDH_P384_HKDF_SIV_GCM_2
+    CLASS_TYPE_STRING = 'QBEC ECDH P384 HKDF SIV GCM 2 Key Management Parameters'
+

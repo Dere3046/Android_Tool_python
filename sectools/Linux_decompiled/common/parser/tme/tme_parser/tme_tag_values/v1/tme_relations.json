@@ -1,0 +1,1654 @@
+[
+ {
+  "tag_id": "0x8080",
+  "name": "EntitlementCertificate",
+  "tag_uses": [
+   {
+    "tag_id": "0x8101",
+    "tag_name": "CertificateVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8102",
+    "tag_name": "KeyIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8103",
+    "tag_name": "AlgorithmIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8180",
+    "tag_name": "Entitlements",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x81FF",
+    "tag_name": "Signature",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8180",
+  "name": "Entitlements",
+  "tag_uses": [
+   {
+    "tag_id": "0x8280",
+    "tag_name": "AttestationEntitlement",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8281",
+    "tag_name": "BootEntitlement",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8282",
+    "tag_name": "DebugEntitlement",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8283",
+    "tag_name": "CommandEntitlement",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8284",
+    "tag_name": "OemRootEntitlement",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8285",
+    "tag_name": "IntermediateAttestationCertificate",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8280",
+  "name": "AttestationEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0x8300",
+    "tag_name": "InstanceVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8313",
+    "tag_name": "AttestationCBORContainer",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x837F",
+    "tag_name": "InstantiationConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8390",
+    "tag_name": "PublicKey",
+    "is_required": true
+    }
+   ]
+ },
+ {
+  "tag_id": "0x8285",
+  "name": "IntermediateAttestationCertificate",
+  "tag_uses": [
+   {
+    "tag_id": "0x8300",
+    "tag_name": "InstanceVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8313",
+    "tag_name": "AttestationCBORContainer",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x837F",
+    "tag_name": "InstantiationConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8390",
+    "tag_name": "PublicKey",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8281",
+  "name": "BootEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0x8300",
+    "tag_name": "InstanceVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8320",
+    "tag_name": "PublicKeyAttributes",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x837F",
+    "tag_name": "InstantiationConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8381",
+    "tag_name": "SubsystemAuthorizationVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8390",
+    "tag_name": "PublicKey",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8282",
+  "name": "DebugEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0x8300",
+    "tag_name": "InstanceVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8330",
+    "tag_name": "AuthorizedDebugVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8331",
+    "tag_name": "AuthorizedDebugOptions",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8332",
+    "tag_name": "AuthorizedTestSignedImageVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8333",
+    "tag_name": "AuthorizedDebugIPScanDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8334",
+    "tag_name": "AuthorizedDebugQADDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8335",
+    "tag_name": "AuthorizedDebugMemDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8336",
+    "tag_name": "AuthorizedDebugRTQADDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x837F",
+    "tag_name": "InstantiationConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8390",
+    "tag_name": "PublicKey",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8283",
+  "name": "CommandEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0x8300",
+    "tag_name": "InstanceVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8340",
+    "tag_name": "CommandAuthorizationVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x837F",
+    "tag_name": "InstantiationConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8390",
+    "tag_name": "PublicKey",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8284",
+  "name": "OemRootEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0x8300",
+    "tag_name": "InstanceVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8320",
+    "tag_name": "PublicKeyAttributes",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x837F",
+    "tag_name": "InstantiationConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8390",
+    "tag_name": "PublicKey",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8290",
+  "name": "DebugPolicyData",
+  "tag_uses": [
+   {
+    "tag_id": "0x8360",
+    "tag_name": "DebugVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8361",
+    "tag_name": "DebugOptions",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8362",
+    "tag_name": "CrashDumpVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8363",
+    "tag_name": "TestSignedImageVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8364",
+    "tag_name": "DebugIPScanDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8365",
+    "tag_name": "DebugQADDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8366",
+    "tag_name": "DebugMemDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8367",
+    "tag_name": "DebugRTQADDumpPolicyVector",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8388",
+    "tag_name": "SubsystemDebugOptions",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8389",
+    "tag_name": "TestSignedImageHashList",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x838A",
+    "tag_name": "OemTestRootCaHashValues",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x838B",
+    "tag_name": "FingerprintHashValue",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x838C",
+    "tag_name": "OemCrashDumpPublicKey",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8291",
+  "name": "ImageDescriptor",
+  "tag_uses": [
+   {
+    "tag_id": "0x8301",
+    "tag_name": "SecurityVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8351",
+    "tag_name": "ImageDescriptorSoftwareComponentIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8352",
+    "tag_name": "MeasurementRegisterTarget",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8384",
+    "tag_name": "ImageDescHashValues",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8386",
+    "tag_name": "ImageDescAddressSize",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x838B",
+    "tag_name": "FingerprintHashValue",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8292",
+  "name": "RomPatchData",
+  "tag_uses": [
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8385",
+    "tag_name": "RomPatchDescriptor",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x838B",
+    "tag_name": "FingerprintHashValue",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8293",
+  "name": "FuseOverwriteData",
+  "tag_uses": [
+   {
+    "tag_id": "0x836c",
+    "tag_name": "WriteProtectionOverwriteVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x836d",
+    "tag_name": "OverwriteCommandSequence",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x838B",
+    "tag_name": "FingerprintHashValue",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8294",
+  "name": "BootEntitlementData",
+  "tag_uses": [
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x838B",
+    "tag_name": "FingerprintHashValue",
+    "is_required": false
+   }
+  ]
+ },
+{
+  "tag_id": "0x8297",
+  "name": "AttestationData",
+  "tag_uses": [
+   {
+   "tag_id": "0x8380",
+   "tag_name": "ChipConstraints",
+   "is_required": false
+    },
+    {
+    "tag_id": "0x838B",
+    "tag_name": "FingerprintHashValue",
+    "is_required": false
+    }
+  ]
+ },
+ {
+  "tag_id": "0x8380",
+  "name": "ChipConstraints",
+  "tag_uses": [
+   {
+    "tag_id": "0x8400",
+    "tag_name": "RootKeysetVersion",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8401",
+    "tag_name": "SocHardwareVersion",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8403",
+    "tag_name": "OemIdentifier",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8404",
+    "tag_name": "OemProductIdentifier",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8405",
+    "tag_name": "SocLifeCycleState",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8407",
+    "tag_name": "SocFeatureIdentifier",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8408",
+    "tag_name": "SocJtagIdentifier",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8409",
+    "tag_name": "OemLifeCycleState",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8487",
+    "tag_name": "ChipUniqueIdentifier",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8488",
+    "tag_name": "OemRcHash",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8489",
+    "tag_name": "OemBatchKeyHash",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8381",
+  "name": "SubsystemAuthorizationVector",
+  "tag_uses": [
+   {
+    "tag_id": "0x8422",
+    "tag_name": "BootSubsystemSoftwareComponentIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8423",
+    "tag_name": "RootSigningCaIdentifier",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8384",
+  "name": "ImageDescHashValues",
+  "tag_uses": [
+   {
+    "tag_id": "0x8440",
+    "tag_name": "HashAlgorithmIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8441",
+    "tag_name": "HashArray",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8385",
+  "name": "RomPatchDescriptor",
+  "tag_uses": [
+   {
+    "tag_id": "0x8301",
+    "tag_name": "SecurityVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8368",
+    "tag_name": "RomIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8369",
+    "tag_name": "RomPatch",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8386",
+  "name": "ImageDescAddressSize",
+  "tag_uses": [
+   {
+    "tag_id": "0x8448",
+    "tag_name": "ImageAddress",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8449",
+    "tag_name": "ImageSize",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8388",
+  "name": "SubsystemDebugOptions",
+  "tag_uses": [
+   {
+    "tag_id": "0x8450",
+    "tag_name": "SubsysIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8451",
+    "tag_name": "SubsysDebugOptions",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8389",
+  "name": "TestSignedImageHashList",
+  "tag_uses": [
+   {
+    "tag_id": "0x8422",
+    "tag_name": "BootSubsystemSoftwareComponentIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8486",
+    "tag_name": "HashValues",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x838A",
+  "name": "OemTestRootCaHashValues",
+  "tag_uses": [
+   {
+    "tag_id": "0x8440",
+    "tag_name": "HashAlgorithmIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8441",
+    "tag_name": "HashArray",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x838B",
+  "name": "FingerprintHashValue",
+  "tag_uses": [
+   {
+    "tag_id": "0x8440",
+    "tag_name": "HashAlgorithmIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8441",
+    "tag_name": "HashArray",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x838C",
+  "name": "OemCrashDumpPublicKey",
+  "tag_uses": [
+   {
+    "tag_id": "0x8410",
+    "tag_name": "CurveIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8411",
+    "tag_name": "PublicKeyValue",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8390",
+  "name": "PublicKey",
+  "tag_uses": [
+   {
+    "tag_id": "0x8410",
+    "tag_name": "CurveIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8411",
+    "tag_name": "PublicKeyValue",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8486",
+  "name": "HashValues",
+  "tag_uses": [
+   {
+    "tag_id": "0x8440",
+    "tag_name": "HashAlgorithmIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8441",
+    "tag_name": "HashArray",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8487",
+  "name": "ChipUniqueIdentifier",
+  "tag_uses": [
+   {
+    "tag_id": "0x8510",
+    "tag_name": "ProductIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8511",
+    "tag_name": "SerialNumber",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8488",
+  "name": "OemRcHash",
+  "tag_uses": [
+   {
+    "tag_id": "0x8440",
+    "tag_name": "HashAlgorithmIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8441",
+    "tag_name": "HashArray",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8489",
+  "name": "OemBatchKeyHash",
+  "tag_uses": [
+   {
+    "tag_id": "0x8440",
+    "tag_name": "HashAlgorithmIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8441",
+    "tag_name": "HashArray",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8601",
+  "name": "BootManifestHashTable",
+  "tag_uses": [
+   {
+    "tag_id": "0x8602",
+    "tag_name": "BootManifestHashTableEntry",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8602",
+  "name": "BootManifestHashTableEntry",
+  "tag_uses": [
+   {
+    "tag_id": "0x8422",
+    "tag_name": "BootSubsystemSoftwareComponentIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8486",
+    "tag_name": "HashValues",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8603",
+  "name": "ImageDescriptorArray",
+    "tag_uses": [
+   {
+    "tag_id": "0x8301",
+    "tag_name": "SecurityVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8351",
+    "tag_name": "ImageDescriptorSoftwareComponentIdentifier",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8352",
+    "tag_name": "MeasurementRegisterTarget",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8384",
+    "tag_name": "ImageDescHashValues",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8386",
+    "tag_name": "ImageDescAddressSize",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x838B",
+    "tag_name": "FingerprintHashValue",
+    "is_required": false
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0005",
+  "name": "CmdShaInit",
+  "tag_uses": [
+   {
+    "tag_id": "0xC050",
+    "tag_name": "ShaMode",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC011",
+    "tag_name": "CmdReserved1",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0006",
+  "name": "CmdShaUpdate",
+  "tag_uses": [
+   {
+    "tag_id": "0xC012",
+    "tag_name": "CmdReserved2",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC020",
+    "tag_name": "CmdAddress",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC021",
+    "tag_name": "CmdLength",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0007",
+  "name": "CmdShaFinal",
+  "tag_uses": [
+   {
+    "tag_id": "0xC012",
+    "tag_name": "CmdReserved2",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0008",
+  "name": "CmdShaRegionUpdate",
+  "tag_uses": [
+   {
+    "tag_id": "0xC051",
+    "tag_name": "ShaRegionId",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0181",
+  "name": "SvcSocProvisioning",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC101",
+    "tag_name": "CipherSuite",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC102",
+    "tag_name": "FamilyKeySet",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC103",
+    "tag_name": "DerivationKeyVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC104",
+    "tag_name": "DevelopmentMode",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC022",
+    "tag_name": "CmdInfraNonce",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC023",
+    "tag_name": "CmdSocNonce",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC024",
+    "tag_name": "CmdInitialVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC027",
+    "tag_name": "EncryptedCommandSequence",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC028",
+    "tag_name": "AeadMac",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0182",
+  "name": "SvcImageAuthentication",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8291",
+    "tag_name": "ImageDescriptor",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x81FF",
+    "tag_name": "Signature",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0183",
+  "name": "SvcAuthenticatedDebugReenable",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC011",
+    "tag_name": "CmdReserved1",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC301",
+    "tag_name": "CmdDebugOptions",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC011",
+    "tag_name": "CmdReserved1",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC023",
+    "tag_name": "CmdSocNonce",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8360",
+    "tag_name": "DebugVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC026",
+    "tag_name": "CmdSignature",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0184",
+  "name": "SvcRomPatch",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC012",
+    "tag_name": "CmdReserved2",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC104",
+    "tag_name": "DevelopmentMode",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8292",
+    "tag_name": "RomPatchData",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x81FF",
+    "tag_name": "Signature",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x018E",
+  "name": "SvcApmSocProvInit",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC104",
+    "tag_name": "DevelopmentMode",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x018F",
+  "name": "SvcApmSocProvision",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC024",
+    "tag_name": "CmdInitialVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC027",
+    "tag_name": "EncryptedCommandSequence",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC028",
+    "tag_name": "AeadMac",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC022",
+    "tag_name": "CmdInfraNonce",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0190",
+  "name": "SvcApmCertCheck",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC029",
+    "tag_name": "CertLen",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC02A",
+    "tag_name": "CertOffset",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC601",
+    "tag_name": "CurveIdentifierDataOnly",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0191",
+  "name": "SvcCertOceEckaPullProvision",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC601",
+    "tag_name": "CurveIdentifierDataOnly",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x7185",
+  "name": "SvcSpuProvisioning",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC101",
+    "tag_name": "CipherSuite",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC022",
+    "tag_name": "CmdInfraNonce",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC023",
+    "tag_name": "CmdSocNonce",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC024",
+    "tag_name": "CmdInitialVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC501",
+    "tag_name": "ApplianceEphemeralKey",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC027",
+    "tag_name": "EncryptedCommandSequence",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC028",
+    "tag_name": "AeadMac",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0186",
+  "name": "SvcDebugPolicy",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8290",
+    "tag_name": "DebugPolicyData",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x81FF",
+    "tag_name": "Signature",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0187",
+  "name": "SvcSocActivation",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC011",
+    "tag_name": "CmdReserved1",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC701",
+    "tag_name": "CmdOperationalMode",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC011",
+    "tag_name": "CmdReserved1",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8210",
+    "tag_name": "ConfigData",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC023",
+    "tag_name": "CmdSocNonce",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC015",
+    "tag_name": "CmdConstLen4",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC014",
+    "tag_name": "CmdReserved4",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC026",
+    "tag_name": "CmdSignature",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0188",
+  "name": "SvcDynamicFuseOverwrite",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x836c",
+    "tag_name": "WriteProtectionOverwriteVector",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC023",
+    "tag_name": "CmdSocNonce",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC015",
+    "tag_name": "CmdConstLen4",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC014",
+    "tag_name": "CmdReserved4",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC026",
+    "tag_name": "CmdSignature",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x0189",
+  "name": "SvcStaticFuseOverwrite",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8293",
+    "tag_name": "FuseOverwriteData",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x81FF",
+    "tag_name": "Signature",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x018a",
+  "name": "SvcBootEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC025",
+    "tag_name": "CmdSigningAlgorithmId",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC013",
+    "tag_name": "CmdReserved3",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8294",
+    "tag_name": "BootEntitlementData",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x81FF",
+    "tag_name": "Signature",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x018b",
+  "name": "SvcTerminate",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x018c",
+  "name": "SvcVerifyAttestation",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8297",
+    "tag_name": "AttestationData",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8110",
+    "tag_name": "EntitlementChain",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x018d",
+  "name": "SvcSocTerminate",
+  "tag_uses": [
+   {
+    "tag_id": "0xC001",
+    "tag_name": "CmdMinorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0xC002",
+    "tag_name": "CmdMajorVersion",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8380",
+    "tag_name": "ChipConstraints",
+    "is_required": false
+   },
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8600",
+  "name": "BootManifest",
+  "tag_uses": [
+   {
+    "tag_id": "0x0182",
+    "tag_name": "SvcImageAuthentication",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8601",
+    "tag_name": "BootManifestHashTable",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8110",
+  "name": "EntitlementChain",
+  "tag_uses": [
+   {
+    "tag_id": "0x8112",
+    "tag_name": "IntermediateEntitlement",
+    "is_required": true
+   },
+   {
+    "tag_id": "0x8111",
+    "tag_name": "RootEntitlement",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8111",
+  "name": "RootEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ },
+ {
+  "tag_id": "0x8112",
+  "name": "IntermediateEntitlement",
+  "tag_uses": [
+   {
+    "tag_id": "0x8080",
+    "tag_name": "EntitlementCertificate",
+    "is_required": true
+   }
+  ]
+ }
+]

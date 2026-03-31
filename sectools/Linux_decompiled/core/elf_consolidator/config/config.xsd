@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ ===============================================================================
+  ~ Copyright (c) 2021 Qualcomm Technologies, Inc.
+  ~ All Rights Reserved.
+  ~ Confidential and Proprietary - Qualcomm Technologies, Inc.
+  ~ ===============================================================================
+  -->
+
+<schema xmlns:pkg="http://www.qualcomm.com/sectools/elf_consolidator"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.qualcomm.com/sectools/elf_consolidator">
+
+    <element name="config">
+        <complexType>
+            <all>
+                <element name="ledger_load_addr" type="pkg:sixteen_char_hex"/>
+                <element name="qti_dpr_load_addr" type="pkg:sixteen_char_hex"/>
+                <element name="entry_point_sw_id" type="pkg:eight_char_hex" minOccurs="0"/>
+                <element name="translation_table" type="pkg:translation_table"/>
+                <element name="skipped_sw_ids" type="pkg:skipped_software_ids" minOccurs="0"/>
+            </all>
+            <attribute name="schema_version" type="pkg:version" use="required"/>
+        </complexType>
+    </element>
+
+    <complexType name="translation_table">
+        <sequence maxOccurs="unbounded" minOccurs="0">
+            <element name="image" type="pkg:translation_table_entry"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="translation_table_entry">
+        <all>
+            <element name="sw_id" type="pkg:eight_char_hex"/>
+            <element name="phy_addr" type="pkg:sixteen_char_hex"/>
+            <element name="length" type="pkg:sixteen_char_hex"/>
+            <element name="translated_addr" type="pkg:sixteen_char_hex"/>
+            <element name="collapse_segments" type="boolean"/>
+        </all>
+        <attribute name="id" type="pkg:id" use="required"/>
+    </complexType>
+
+    <complexType name="skipped_software_ids">
+        <sequence>
+            <element name="sw_id" type="pkg:eight_char_hex" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="sixteen_char_hex">
+        <restriction base="string">
+            <pattern value="0x[0-9a-fA-F][0-9a-fA-F]{0,15}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="eight_char_hex">
+        <restriction base="string">
+            <pattern value="0x0*[0-9a-fA-F]{1,8}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="version">
+        <restriction base="string">
+            <pattern value="[1-9]+[0-9]*.[0-9]+[0-9]*"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="id">
+        <restriction base="string">
+            <pattern value="[A-Z0-9]+([\-][A-Z0-9]+)*"/>
+        </restriction>
+    </simpleType>
+
+</schema>

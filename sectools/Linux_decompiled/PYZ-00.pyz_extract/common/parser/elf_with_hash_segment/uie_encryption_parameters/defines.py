@@ -1,0 +1,4 @@
+
+EPIH_MAG = b'ISMQ'
+NUM_EPS = 1
+RESERVED = 0

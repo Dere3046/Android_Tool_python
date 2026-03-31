@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:tns="http://www.qualcomm.com/sectools"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.qualcomm.com/sectools">
+
+    <element name="profile">
+        <complexType>
+            <!-- An error will be raised by Sectools if the defined version is greater than the version of Sectools
+            consuming the Profile. This prevents scenarios where a Profile which depends on a new feature of Sectools is
+            provided to an old version of Sectools which lacks support for the new feature -->
+            <attribute name="minimum_sectools_version"  type="tns:version" use="required"/>
+            <!-- An error will be raised by Sectools if the defined version is less than the schema version
+            requirement of Sectools. This prevents scenarios where a Profile with a schema different than what is
+            recognized by Sectools is provided -->
+            <attribute name="schema_version"  type="tns:version" use="required"/>
+        </complexType>
+    </element>
+
+    <simpleType name="version">
+        <restriction base="string">
+            <pattern value="[1-9]+[0-9]*.[0-9]+[0-9]*"/>
+        </restriction>
+    </simpleType>
+
+</schema>

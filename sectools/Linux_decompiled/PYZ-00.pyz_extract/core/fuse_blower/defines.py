@@ -1,0 +1,2 @@
+
+FEC_FUSE_SIZE = 7

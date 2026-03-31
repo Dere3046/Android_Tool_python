@@ -1,0 +1,79 @@
+
+import linecache
+import traceback
+from  import base_futures
+from  import coroutines
+
+def _task_repr_info(task):
+    info = base_futures._future_repr_info(task)
+    if task._must_cancel:
+        info[0] = 'cancelling'
+    info.insert(1, 'name=%r' % task.get_name())
+    coro = coroutines._format_coroutine(task._coro)
+    info.insert(2, f'''coro=<{coro}>''')
+    if task._fut_waiter is not None:
+        info.insert(3, f'''wait_for={task._fut_waiter!r}''')
+    return info
+
+
+def _task_get_stack(task, limit):
+    frames = []
+    if hasattr(task._coro, 'cr_frame'):
+        f = task._coro.cr_frame
+    elif hasattr(task._coro, 'gi_frame'):
+        f = task._coro.gi_frame
+    elif hasattr(task._coro, 'ag_frame'):
+        f = task._coro.ag_frame
+    else:
+        f = None
+    if f is not None:
+        if f is not None:
+            if limit is not None:
+                if limit <= 0:
+                    pass
+                else:
+                    limit -= 1
+            frames.append(f)
+            f = f.f_back
+            if not f is not None:
+                frames.reverse()
+                return frames
+            if None._exception is not None:
+                tb = task._exception.__traceback__
+                if tb is not None:
+                    if limit is not None:
+                        if limit <= 0:
+                            return frames
+                        None -= 1
+                    frames.append(tb.tb_frame)
+                    tb = tb.tb_next
+                    if not tb is not None:
+                        return frames
+
+
+def _task_print_stack(task, limit, file):
+    extracted_list = []
+    checked = set()
+    for f in task.get_stack(limit, **('limit',)):
+        lineno = f.f_lineno
+        co = f.f_code
+        filename = co.co_filename
+        name = co.co_name
+        if filename not in checked:
+            checked.add(filename)
+            linecache.checkcache(filename)
+        line = linecache.getline(filename, lineno, f.f_globals)
+        extracted_list.append((filename, lineno, name, line))
+    exc = task._exception
+    if not extracted_list:
+        print(f'''No stack for {task!r}''', file, **('file',))
+    elif exc is not None:
+        print(f'''Traceback for {task!r} (most recent call last):''', file, **('file',))
+    else:
+        print(f'''Stack for {task!r} (most recent call last):''', file, **('file',))
+    traceback.print_list(extracted_list, file, **('file',))
+    if exc is not None:
+        for line in traceback.format_exception_only(exc.__class__, exc):
+            print(line, file, '', **('file', 'end'))
+    return None
+

@@ -1,0 +1,13 @@
+
+import enum
+LOG_THRESHOLD_FOR_CONNLOST_WRITES = 5
+ACCEPT_RETRY_DELAY = 1
+DEBUG_STACK_DEPTH = 10
+SSL_HANDSHAKE_TIMEOUT = 60
+SENDFILE_FALLBACK_READBUFFER_SIZE = 262144
+
+class _SendfileMode(enum.Enum):
+    UNSUPPORTED = enum.auto()
+    TRY_NATIVE = enum.auto()
+    FALLBACK = enum.auto()
+

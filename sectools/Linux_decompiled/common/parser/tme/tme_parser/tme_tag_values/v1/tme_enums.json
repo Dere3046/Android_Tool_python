@@ -1,0 +1,934 @@
+[
+  {
+    "enum_name": "ROOT_KIDS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8102",
+        "tag_name": "KeyIdentifier"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "QTI_ENTITLEMENT_ROOT_KID",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "QTI_CODE_SIGNING_ROOT_KID",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "OEM_ENTITLEMENT_KID",
+        "enum_value": "0x03"
+      },
+      {
+        "enum_name": "INTERMEDIATE_CA_SIGNING_KID",
+        "enum_value": "0x04"
+      },
+      {
+        "enum_name": "QTI_TEST_CODE_SIGNING_ROOT_KID",
+        "enum_value": "0x82"
+      }
+    ]
+  },
+  {
+    "enum_name": "ALGORITHM_IDS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8103",
+        "tag_name": "AlgorithmIdentifier"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "NONE",
+        "enum_value": "0x00"
+      },
+      {
+        "enum_name": "ECDSA_P384_SHA384",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "ECDSA_P521_SHA512",
+        "enum_value": "0x02"
+      }
+    ]
+  },
+  {
+    "enum_name": "PUBLIC_KEY_ATTRIBUTES",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8320",
+        "tag_name": "PublicKeyAttributes"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "NONE",
+        "enum_value": "0x00"
+      },
+      {
+        "enum_name": "IS_DELEGATE_K_TEST",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "IS_DELEGATE_K_CA",
+        "enum_value": "0x02"
+      }
+    ]
+  },
+  {
+    "enum_name": "DEBUG_OPTIONS",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8331",
+        "tag_name": "AuthorizedDebugOptions"
+      },
+      {
+        "tag_id": "0x8361",
+        "tag_name": "DebugOptions"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "NONE",
+        "enum_value": "0x00"
+      },
+      {
+        "enum_name": "PERMANENT_UNLOCK",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "PERSIST_ON_RESET",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "ASSERT_QTI_OWNERSHIP",
+        "enum_value": "0x04"
+      },
+      {
+        "enum_name": "FORCE_SEQ_ROM",
+        "enum_value": "0x08"
+      },
+      {
+        "enum_name": "DISABLE_SYSTEM_WATCHDOG",
+        "enum_value": "0x10"
+      },
+      {
+        "enum_name": "ALLOW_SYSTEM_WATCHDOG_ACCESS",
+        "enum_value": "0x20"
+      }
+    ]
+  },
+  {
+    "enum_name": "COMMAND_AUTHORIZATIONS",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8340",
+        "tag_name": "CommandAuthorizationVector"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "SPR",
+        "enum_value": "0x0002"
+      },
+      {
+        "enum_name": "IAR",
+        "enum_value": "0x0004"
+      },
+      {
+        "enum_name": "ADRR",
+        "enum_value": "0x0008"
+      },
+      {
+        "enum_name": "RPR",
+        "enum_value": "0x0010"
+      },
+      {
+        "enum_name": "DPR",
+        "enum_value": "0x0040"
+      },
+      {
+        "enum_name": "SAR",
+        "enum_value": "0x0080"
+      },
+      {
+        "enum_name": "DFOR",
+        "enum_value": "0x0100"
+      },
+      {
+        "enum_name": "SFOR",
+        "enum_value": "0x0200"
+      },
+      {
+        "enum_name": "BER",
+        "enum_value": "0x0400"
+      },
+      {
+        "enum_name": "STR",
+        "enum_value": "0x0800"
+      }
+    ]
+  },
+  {
+    "enum_name": "SOFTWARE_COMPONENT_IDS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8351",
+        "tag_name": "ImageDescriptorSoftwareComponentIdentifier"
+      },
+      {
+        "tag_id": "0x8422",
+        "tag_name": "BootSubsystemSoftwareComponentIdentifier"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "MODEM_SS_SWID",
+        "enum_value": "0x0002"
+      },
+      {
+        "enum_name": "VIP_SS_SWID",
+        "enum_value": "0x0003"
+      },
+      {
+        "enum_name": "TZ_CONFIG_SS_SWID",
+        "enum_value": "0x0005"
+      },
+      {
+        "enum_name": "QTEE_SS_SWID",
+        "enum_value": "0x0007"
+      },
+      {
+        "enum_name": "UEFI_SS_SWID",
+        "enum_value": "0x0009"
+      },
+      {
+        "enum_name": "QHEE_SS_SWID",
+        "enum_value": "0x0015"
+      },
+      {
+        "enum_name": "CMNLIB_SS_SWID",
+        "enum_value": "0x001f"
+      },
+      {
+        "enum_name": "SHRM_SS_SWID",
+        "enum_value": "0x0020"
+      },
+      {
+        "enum_name": "AOP_SS_SWID",
+        "enum_value": "0x0021"
+      },
+      {
+        "enum_name": "OEM_MISC_SS_SWID",
+        "enum_value": "0x0022"
+      },
+      {
+        "enum_name": "QTI_MISC_SS_SWID",
+        "enum_value": "0x0023"
+      },
+      {
+        "enum_name": "QUPV3_SS_SWID",
+        "enum_value": "0x0024"
+      },
+      {
+        "enum_name": "XBL_CONFIG_SS_SWID",
+        "enum_value": "0x0025"
+      },
+      {
+        "enum_name": "UEFI_FV_SS_SWID",
+        "enum_value": "0x0027"
+      },
+      {
+        "enum_name": "SEC_ELF_SS_SWID",
+        "enum_value": "0x002b"
+      },
+      {
+        "enum_name": "CPUCP_SS_SWID",
+        "enum_value": "0x0031"
+      },
+      {
+        "enum_name": "APP_SS_SWID",
+        "enum_value": "0x0032"
+      },
+      {
+        "enum_name": "TME_FW_SS_SWID",
+        "enum_value": "0x0035"
+      },
+      {
+        "enum_name": "XBL_SC_SS_SWID",
+        "enum_value": "0x0036"
+      },
+      {
+        "enum_name": "TME_SEQ_SS_SWID",
+        "enum_value": "0x0037"
+      },
+      {
+        "enum_name": "BTSS_SWID",
+        "enum_value": "0x0038"
+      },
+      {
+        "enum_name": "XBL_SC_EXT_SS_SWID",
+        "enum_value": "0x0041"
+      },
+      {
+        "enum_name": "XBL_RAM_DUMP_SS_SWID",
+        "enum_value": "0x0042"
+      },
+      {
+        "enum_name": "BTSS_LIC_SWID",
+        "enum_value": "0x0048"
+      },
+      {
+        "enum_name": "BTSS_CFG_SWID",
+        "enum_value": "0x0049"
+      },
+      {
+        "enum_name": "OEM_BOOT_MANIF_HASH_TBL_SWID",
+        "enum_value": "0x004a"
+      },
+      {
+        "enum_name": "QTI_BOOT_MANIF_HASH_TBL_SWID",
+        "enum_value": "0x004b"
+      },
+      {
+        "enum_name": "CPUSYS_VM_SS_SWID",
+        "enum_value": "0x004d"
+      },
+      {
+        "enum_name": "QTI_BOOT_MANIFEST_SWID",
+        "enum_value": "0x004e"
+      },
+      {
+        "enum_name": "OEM_BOOT_MANIFEST_SWID",
+        "enum_value": "0x004f"
+      },
+      {
+        "enum_name": "UPDATE_MANIFEST_SWID",
+        "enum_value": "0x0050"
+      },
+      {
+        "enum_name": "MVM_FW_SS_SWID",
+        "enum_value": "0x006a"
+      },
+      {
+        "enum_name": "SOCCP_DEBUG_SS_SWID",
+        "enum_value": "0x0089"
+      },
+      {
+        "enum_name": "PDP_SS_SWID",
+        "enum_value": "0x0091"
+      },
+      {
+        "enum_name": "TME_CONFIG",
+        "enum_value": "0x0094"
+      },
+      {
+        "enum_name": "XBL_AC_CONFIG",
+        "enum_value": "0x0095"
+      },
+      {
+        "enum_name": "TZ_AC_CONFIG",
+        "enum_value": "0x0096"
+      },
+      {
+        "enum_name": "HYP_AC_CONFIG",
+        "enum_value": "0x0097"
+      },
+      {
+        "enum_name": "OOBMSS_TEE",
+        "enum_value": "0x0098"
+      },
+      {
+        "enum_name": "OOBMSS_QC_DTB",
+        "enum_value": "0x0099"
+      },
+      {
+        "enum_name": "OOBMSS_NS",
+        "enum_value": "0x009a"
+      },
+      {
+        "enum_name": "TZ_QTI_CONFIG",
+        "enum_value": "0x00a1"
+      },
+      {
+        "enum_name": "TME_SIGNED_CMD_SWID",
+        "enum_value": "0x0200"
+      }
+    ]
+  },
+  {
+    "enum_name": "INSTANTIATION_CONSTRAINTS",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x837F",
+        "tag_name": "InstantiationConstraints"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "IS_SOC_ROOT_KSET_VER_BOUND",
+        "enum_value": "0x0001"
+      },
+      {
+        "enum_name": "IS_SOC_HW_VERSION_BOUND",
+        "enum_value": "0x0002"
+      },
+      {
+        "enum_name": "IS_CHIP_UNIQUE_ID_BOUND",
+        "enum_value": "0x0004"
+      },
+      {
+        "enum_name": "IS_OEM_ID_BOUND",
+        "enum_value": "0x0008"
+      },
+      {
+        "enum_name": "IS_OEM_PROD_ID_BOUND",
+        "enum_value": "0x0010"
+      },
+      {
+        "enum_name": "IS_OEM_RC_HASH_BOUND",
+        "enum_value": "0x0020"
+      },
+      {
+        "enum_name": "IS_SOC_LCS_BOUND",
+        "enum_value": "0x0040"
+      },
+      {
+        "enum_name": "IS_FEAT_ID_BOUND",
+        "enum_value": "0x0080"
+      },
+      {
+        "enum_name": "IS_JTAG_ID_BOUND",
+        "enum_value": "0x0100"
+      },
+      {
+        "enum_name": "IS_NONCE_BOUND",
+        "enum_value": "0x0200"
+      },
+      {
+        "enum_name": "IS_FINGERPRINT_BOUND",
+        "enum_value": "0x0400"
+      },
+      {
+        "enum_name": "IS_QTI_OWNERSHIP_ASSERTION_BOUND",
+        "enum_value": "0x0800"
+      },
+      {
+        "enum_name": "IS_OEM_LCS_BOUND",
+        "enum_value": "0x1000"
+      },
+      {
+        "enum_name": "IS_OEM_BATCH_KEY_HASH_BOUND",
+        "enum_value": "0x2000"
+      }
+    ]
+  },
+  {
+    "enum_name": "SOC_LIFECYCLE_STATES",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8405",
+        "tag_name": "SocLifeCycleState"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "BLANK",
+        "enum_value": "0x0001"
+      },
+      {
+        "enum_name": "PERSONALIZED",
+        "enum_value": "0x0002"
+      },
+      {
+        "enum_name": "OPERATIONAL_EXT",
+        "enum_value": "0x0020"
+      },
+      {
+        "enum_name": "RMA",
+        "enum_value": "0x0080"
+      },
+      {
+        "enum_name": "OPERATIONAL_INT",
+        "enum_value": "0x0800"
+      },
+      {
+        "enum_name": "RECOVERY",
+        "enum_value": "0x4000"
+      },
+      {
+        "enum_name": "TERMINATED",
+        "enum_value": "0x8000"
+      }
+    ]
+  },
+  {
+    "enum_name": "OEM_LIFECYCLE_STATES",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8409",
+        "tag_name": "OemLifeCycleState"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "DEVELOPMENT",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "PRODUCTION",
+        "enum_value": "0x0d"
+      }
+    ]
+  },
+  {
+    "enum_name": "EC_CURVE_IDS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8410",
+        "tag_name": "CurveIdentifier"
+      },
+      {
+        "tag_id": "0xC601",
+        "tag_name": "CurveIdentifierDataOnly"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "P-256",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "P-384",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "P-521",
+        "enum_value": "0x03"
+      }
+    ]
+  },
+  {
+    "enum_name": "SOFTWARE_ROOT_CA_IDS",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8423",
+        "tag_name": "RootSigningCaIdentifier"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "QTI_CA_ID",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "OEM_CA_ID",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "DELEGATE_K_ID",
+        "enum_value": "0x04"
+      }
+    ]
+  },
+  {
+    "enum_name": "ATTEST_CLAIMS",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8310",
+        "tag_name": "AttestationClaimSetVector"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "NONCE",
+        "enum_value": "0x00000001"
+      },
+      {
+        "enum_name": "UE_ID",
+        "enum_value": "0x00000002"
+      },
+      {
+        "enum_name": "SECURE_BOOT_STATE",
+        "enum_value": "0x00000004"
+      },
+      {
+        "enum_name": "DEBUG_STATE",
+        "enum_value": "0x00000008"
+      },
+      {
+        "enum_name": "SEC_VERS_TME_HW_AGENT_ROM",
+        "enum_value": "0x00000010"
+      },
+      {
+        "enum_name": "SEC_VERS_TME_HW_CPU_ROM",
+        "enum_value": "0x00000020"
+      },
+      {
+        "enum_name": "SEC_VERS_SOC_ROM",
+        "enum_value": "0x00000040"
+      },
+      {
+        "enum_name": "SEC_VERS_TME_HW_CPU_IMAGE",
+        "enum_value": "0x00000080"
+      },
+      {
+        "enum_name": "OEM_ID",
+        "enum_value": "0x00000100"
+      },
+      {
+        "enum_name": "SP_ID",
+        "enum_value": "0x00000200"
+      },
+      {
+        "enum_name": "OEM_PRODUCT_ID",
+        "enum_value": "0x00000400"
+      },
+      {
+        "enum_name": "QTI_PRODUCT_ID",
+        "enum_value": "0x00000800"
+      },
+      {
+        "enum_name": "SOC_LCS",
+        "enum_value": "0x00002000"
+      },
+      {
+        "enum_name": "FEATURE_STATE",
+        "enum_value": "0x00004000"
+      },
+      {
+        "enum_name": "HW_STATE_REPORT",
+        "enum_value": "0x00008000"
+      },
+      {
+        "enum_name": "CLIENT_CONTEXT",
+        "enum_value": "0x00010000"
+      },
+      {
+        "enum_name": "ROOT_KEYSET_STATE_VECTOR",
+        "enum_value": "0x00020000"
+      },
+      {
+        "enum_name": "SOC_PROVISIONING_KEY_VERSION",
+        "enum_value": "0x00040000"
+      },
+      {
+        "enum_name": "MEASUREMENT_REGISTER_0",
+        "enum_value": "0x00080000"
+      },
+      {
+        "enum_name": "MEASUREMENT_REGISTER_1",
+        "enum_value": "0x00100000"
+      }
+    ]
+  },
+  {
+    "enum_name": "ATTEST_MODES",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8311",
+        "tag_name": "AttestationModes"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "PRIVACY_PRESERVING",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "NONPRIVACY_PRESERVING",
+        "enum_value": "0x02"
+      }
+    ]
+  },
+  {
+    "enum_name": "CRASH_DUMP_TYPES",
+    "enum_type": "mask",
+    "used_by": [
+      {
+        "tag_id": "0x8362",
+        "tag_name": "CrashDumpVector"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "MINI_DUMP",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "NS_FULL_DUMP",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "SEC_FULL_DUMP",
+        "enum_value": "0x04"
+      }
+    ]
+  },
+  {
+    "enum_name": "SUBSYSTEM_IDS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8450",
+        "tag_name": "SubsysIdentifier"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "TME_SEQ_SS_MSID",
+        "enum_value": "0x00"
+      },
+      {
+        "enum_name": "TME_CPU_SS_MSID",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "AOP_SS_MSID",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "SHRM_SS_MSID",
+        "enum_value": "0x03"
+      },
+      {
+        "enum_name": "CPUCP_SS_MSID",
+        "enum_value": "0x04"
+      },
+      {
+        "enum_name": "AP_SEC_SS_MSID",
+        "enum_value": "0x10"
+      },
+      {
+        "enum_name": "AP_NSEC_SS_MSID",
+        "enum_value": "0x11"
+      },
+      {
+        "enum_name": "HYP_SS_MSID",
+        "enum_value": "0x12"
+      },
+      {
+        "enum_name": "MODEM_SS_MSID",
+        "enum_value": "0x20"
+      },
+      {
+        "enum_name": "ADSP_SS_MSID",
+        "enum_value": "0x30"
+      },
+      {
+        "enum_name": "CDSP_SS_MSID",
+        "enum_value": "0x31"
+      },
+      {
+        "enum_name": "SLPI_SS_MSID",
+        "enum_value": "0x32"
+      },
+      {
+        "enum_name": "CAMERA_SS_MSID",
+        "enum_value": "0x33"
+      },
+      {
+        "enum_name": "LPASS_SS_MSID",
+        "enum_value": "0x34"
+      },
+      {
+        "enum_name": "NSP_SS_MSID",
+        "enum_value": "0x35"
+      },
+      {
+        "enum_name": "GPU_SS_MSID",
+        "enum_value": "0x36"
+      },
+      {
+        "enum_name": "WLAN_SS_MSID",
+        "enum_value": "0x37"
+      },
+      {
+        "enum_name": "SOCCP_SS_MSID",
+        "enum_value": "0x38"
+      },
+      {
+        "enum_name": "DCP_SS_MSID",
+        "enum_value": "0x39"
+      },
+      {
+        "enum_name": "OOB_NSEC_SS_MSID",
+        "enum_value": "0x3a"
+      },
+      {
+        "enum_name": "OOB_SEC_SS_MSID",
+        "enum_value": "0x3b"
+      }
+    ]
+  },
+  {
+    "enum_name": "MEASUREMENT_REGISTERS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8352",
+        "tag_name": "MeasurementRegisterTarget"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "NA",
+        "enum_value": "0x00"
+      },
+      {
+        "enum_name": "HMR_1",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "HMR_2",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "FMR_1",
+        "enum_value": "0x03"
+      },
+      {
+        "enum_name": "FMR_2",
+        "enum_value": "0x04"
+      },
+      {
+        "enum_name": "FMR_3",
+        "enum_value": "0x05"
+      },
+      {
+        "enum_name": "FMR_4",
+        "enum_value": "0x06"
+      }
+    ]
+  },
+  {
+    "enum_name": "ROM_IDS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8368",
+        "tag_name": "RomIdentifier"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "TME_SEQ_RID",
+        "enum_value": "0x01"
+      },
+      {
+        "enum_name": "TME_CPU_RID",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "SOC_RID",
+        "enum_value": "0x03"
+      },
+      {
+        "enum_name": "TME_SEQ_ROM_RID",
+        "enum_value": "0x04"
+      }
+    ]
+  },
+  {
+    "enum_name": "HASH_ALGORITHM_IDS",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0x8440",
+        "tag_name": "HashAlgorithmIdentifier"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "SHA256",
+        "enum_value": "0x02"
+      },
+      {
+        "enum_name": "SHA384",
+        "enum_value": "0x03"
+      },
+      {
+        "enum_name": "SHA512",
+        "enum_value": "0x05"
+      }
+    ]
+  },
+  {
+    "enum_name": "OPERATIONAL_MODES",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0xC701",
+        "tag_name": "CmdOperationalMode"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "OPERATIONAL_EXT",
+        "enum_value": "0x0"
+      },
+      {
+        "enum_name": "OPERATIONAL_INT",
+        "enum_value": "0x01"
+      }
+    ]
+  },
+  {
+    "enum_name": "CMD_SIGNING_ALGORITHM_ID",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0xC025",
+        "tag_name": "CmdSigningAlgorithmId"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "NONE",
+        "enum_value": "0x0"
+      },
+      {
+        "enum_name": "ECDSA_P384_SHA384",
+        "enum_value": "0x1"
+      },
+      {
+        "enum_name": "ECDSA_P521_SHA512",
+        "enum_value": "0x02"
+      }
+    ]
+  },
+  {
+    "enum_name": "DEVELOPMENT_MODES",
+    "enum_type": "exclusive",
+    "used_by": [
+      {
+        "tag_id": "0xC104",
+        "tag_name": "DevelopmentMode"
+      }
+    ],
+    "enums": [
+      {
+        "enum_name": "FALSE",
+        "enum_value": "0x0"
+      },
+      {
+        "enum_name": "TRUE",
+        "enum_value": "0x1"
+      }
+    ]
+  }
+]

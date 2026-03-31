@@ -1,0 +1,1197 @@
+[
+  {
+    "tag_id": "0x8080",
+    "tag_group": "CERT",
+    "tag_symbol": "ENTITLEMENT_CERTIFICATE",
+    "tag_name": "EntitlementCertificate",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8101",
+    "tag_group": "CERT",
+    "tag_symbol": "CERTIFICATE_VERSION",
+    "tag_name": "CertificateVersion",
+    "tag_type": "int",
+    "use_global_version": true
+  },
+  {
+    "tag_id": "0x8102",
+    "tag_group": "CERT",
+    "tag_symbol": "KEY_ID",
+    "tag_name": "KeyIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "KeyId"
+    ]
+  },
+  {
+    "tag_id": "0x8103",
+    "tag_group": "CERT",
+    "tag_symbol": "ALGORITHM_ID",
+    "tag_name": "AlgorithmIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "AlgorithmId"
+    ]
+  },
+  {
+    "tag_id": "0x8110",
+    "tag_group": "CONTAINER",
+    "tag_symbol": "ENTITLEMENT_CHAIN",
+    "tag_name": "EntitlementChain",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8111",
+    "tag_group": "CONTAINER",
+    "tag_symbol": "ROOTENTITLEMENT",
+    "tag_name": "RootEntitlement",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8112",
+    "tag_group": "CONTAINER",
+    "tag_symbol": "INTERMEDIATEENTITLEMENT",
+    "tag_name": "IntermediateEntitlement",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8180",
+    "tag_group": "CERT",
+    "tag_symbol": "ENTITLEMENTS",
+    "tag_name": "Entitlements",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x81FF",
+    "tag_group": "CERT",
+    "tag_symbol": "SIGNATURE",
+    "tag_name": "Signature",
+    "tag_type": "byteArray"
+  },
+  {
+    "tag_id": "0x8280",
+    "tag_group": "CERT",
+    "tag_symbol": "ATTESTATION_ENTITLEMENT",
+    "tag_name": "AttestationEntitlement",
+    "tag_type": "map",
+    "tag_aliases": [
+      "AttestationEntitlementMap"
+    ]
+  },
+  {
+    "tag_id": "0x8281",
+    "tag_group": "CERT",
+    "tag_symbol": "BOOT_ENTITLEMENT",
+    "tag_name": "BootEntitlement",
+    "tag_type": "map",
+    "tag_aliases": [
+      "BootEntitlementMap"
+    ]
+  },
+  {
+    "tag_id": "0x8282",
+    "tag_group": "CERT",
+    "tag_symbol": "DEBUG_ENTITLEMENT",
+    "tag_name": "DebugEntitlement",
+    "tag_type": "map",
+    "tag_aliases": [
+      "DebugEntitlementMap"
+    ]
+  },
+  {
+    "tag_id": "0x8283",
+    "tag_group": "CERT",
+    "tag_symbol": "COMMAND_ENTITLEMENT",
+    "tag_name": "CommandEntitlement",
+    "tag_type": "map",
+    "tag_aliases": [
+      "CommandEntitlementMap"
+    ]
+  },
+  {
+    "tag_id": "0x8284",
+    "tag_group": "CERT",
+    "tag_symbol": "OEM_ROOT_ENTITLEMENT",
+    "tag_name": "OemRootEntitlement",
+    "tag_type": "map",
+    "tag_aliases": [
+      "OemRootEntitlementMap"
+    ]
+  },
+  {
+    "tag_id": "0x8285",
+    "tag_group": "CERT",
+    "tag_symbol": "INTERMEDIATE_ATTESTATION_ENTITLEMENT",
+    "tag_name": "IntermediateAttestationCertificate",
+    "tag_type": "map",
+    "tag_aliases": [
+      "IntermediateAttestationEntitlementMap"
+    ]
+  },
+  {
+    "tag_id": "0x8210",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CONFIG_DATA",
+    "tag_name": "ConfigData",
+    "tag_type": "byteArray"
+  },
+  {
+    "tag_id": "0x8290",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_POLICY_DATA",
+    "tag_name": "DebugPolicyData",
+    "tag_type": "map",
+    "tag_aliases": [
+      "DebugPolicyDataMap"
+    ]
+  },
+  {
+    "tag_id": "0x8291",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "IMAGE_DESCRIPTOR",
+    "tag_name": "ImageDescriptor",
+    "tag_type": "map",
+    "tag_aliases": [
+      "ImageDescriptorMap"
+    ]
+  },
+  {
+    "tag_id": "0x8292",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ROM_PATCH_DATA",
+    "tag_name": "RomPatchData",
+    "tag_type": "map",
+    "tag_aliases": [
+      "RomPatchDataMap"
+    ]
+  },
+  {
+    "tag_id": "0x8293",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "FUSE_OVERWRITE_DATA",
+    "tag_name": "FuseOverwriteData",
+    "tag_type": "map",
+    "tag_aliases": [
+      "FuseOverwriteDataMap"
+    ]
+  },
+  {
+    "tag_id": "0x8294",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "BOOT_ENTITLEMENT_DATA",
+    "tag_name": "BootEntitlementData",
+    "tag_type": "map",
+    "tag_aliases": [
+      "BootEntitlementDataMap"
+    ]
+  },
+  {
+    "tag_id": "0x8297",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ATTESTATION_DATA",
+    "tag_name": "AttestationData",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8300",
+    "tag_group": "CERT",
+    "tag_symbol": "INSTANCE_VERSION",
+    "tag_name": "InstanceVersion",
+    "tag_type": "int",
+    "tag_aliases": [
+      "CommonInstanceVersion"
+    ]
+  },
+  {
+    "tag_id": "0x8301",
+    "tag_group": "CERT",
+    "tag_symbol": "SECURITY_VERSION",
+    "tag_name": "SecurityVersion",
+    "tag_type": "int",
+    "tag_aliases": [
+      "CommonSecurityVersion"
+    ]
+  },
+  {
+    "tag_id": "0x8310",
+    "tag_group": "CERT",
+    "tag_symbol": "ATTESTATION_CLAIM_SET_VECTOR",
+    "tag_name": "AttestationClaimSetVector",
+    "tag_type": "int",
+    "tag_aliases": [
+      "ClaimSetVector"
+    ]
+  },
+  {
+    "tag_id": "0x8311",
+    "tag_group": "CERT",
+    "tag_symbol": "ATTESTATION_MODES",
+    "tag_name": "AttestationModes",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8313",
+    "tag_group": "CERT",
+    "tag_symbol": "ATTESTATION_CBOR_CONTAINER",
+    "tag_name": "AttestationCBORContainer",
+    "tag_type": "byteArray",
+    "tag_alieses": [
+      "CBORAttestationBlob"
+    ]
+  },
+  {
+    "tag_id": "0x8320",
+    "tag_group": "CERT",
+    "tag_symbol": "PUBLIC_KEY_ATTRIBUTES",
+    "tag_name": "PublicKeyAttributes",
+    "tag_type": "int",
+    "tag_aliases": [
+      "BootAttributes"
+    ]
+  },
+  {
+    "tag_id": "0x8330",
+    "tag_group": "CERT",
+    "tag_symbol": "AUTHORIZED_DEBUG_VECTOR",
+    "tag_name": "AuthorizedDebugVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "AuthorizedDebugFieldsVector"
+    ]
+  },
+  {
+    "tag_id": "0x8331",
+    "tag_group": "CERT",
+    "tag_symbol": "AUTHORIZED_DEBUG_OPTIONS",
+    "tag_name": "AuthorizedDebugOptions",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8332",
+    "tag_group": "CERT",
+    "tag_symbol": "AUTHORIZED_TEST_SIGNED_IMAGES_VECTOR",
+    "tag_name": "AuthorizedTestSignedImageVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "AuthorizedTestSignedImagesVector"
+    ]
+  },
+  {
+    "tag_id": "0x8333",
+    "tag_group": "CERT",
+    "tag_symbol": "AUTHORIZED_DEBUG_IP_SCANDUMP_POLICY_VECTOR",
+    "tag_name": "AuthorizedDebugIPScanDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "AuthorizedDebugIPScanDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8334",
+    "tag_group": "CERT",
+    "tag_symbol": "AUTHORIZED_DEBUG_QAD_DUMP_POLICY_VECTOR",
+    "tag_name": "AuthorizedDebugQADDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "AuthorizedDebugQADDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8335",
+    "tag_group": "CERT",
+    "tag_symbol": "AUTHORIZED_DEBUG_MEM_DUMP_POLICY_VECTOR",
+    "tag_name": "AuthorizedDebugMemDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "AuthorizedDebugMemDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8336",
+    "tag_group": "CERT",
+    "tag_symbol": "AUTHORIZED_DEBUG_RT_QAD_DUMP_POLICY_VECTOR",
+    "tag_name": "AuthorizedDebugRTQADDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "AuthorizedDebugRTQADDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8340",
+    "tag_group": "CERT",
+    "tag_symbol": "COMMAND_AUTHORIZATION_VECTOR",
+    "tag_name": "CommandAuthorizationVector",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8351",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "IMAGE_DESC_SOFTWARE_COMPONENT_ID",
+    "tag_name": "ImageDescriptorSoftwareComponentIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "SoftwareComponentIdentifier",
+      "ImageDescriptorSoftwareComponentId"
+    ]
+  },
+  {
+    "tag_id": "0x8352",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "MEASUREMENT_REGISTER_TARGET",
+    "tag_name": "MeasurementRegisterTarget",
+    "tag_type": "int",
+    "tag_aliases": [
+      "MeasurementRegister"
+    ]
+  },
+  {
+    "tag_id": "0x8360",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_VECTOR",
+    "tag_name": "DebugVector",
+    "tag_type": "byteArray",
+    "tag_type_length": 16,
+    "tag_aliases": [
+      "DebugFieldsVector"
+    ]
+  },
+  {
+    "tag_id": "0x8361",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_OPTIONS",
+    "tag_name": "DebugOptions",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8362",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CRASH_DUMP_VECTOR",
+    "tag_name": "CrashDumpVector",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8363",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "TEST_SIGNED_IMAGE_VECTOR",
+    "tag_name": "TestSignedImageVector",
+    "tag_type": "byteArray"
+  },
+  {
+    "tag_id": "0x8364",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_IP_SCANDUMP_POLICY_VECTOR",
+    "tag_name": "DebugIPScanDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "DebugIPScanDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8365",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_QAD_DUMP_POLICY_VECTOR",
+    "tag_name": "DebugQADDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "DebugQADDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8366",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_MEM_DUMP_POLICY_VECTOR",
+    "tag_name": "DebugMemDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "DebugMemDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8367",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_RT_QAD_DUMP_POLICY_VECTOR",
+    "tag_name": "DebugRTQADDumpPolicyVector",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "DebugRTQADDumpPolicyVector"
+    ]
+  },
+  {
+    "tag_id": "0x8368",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ROM_ID",
+    "tag_name": "RomIdentifier",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8369",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ROM_PATCH",
+    "tag_name": "RomPatch",
+    "tag_type": "byteArray"
+  },
+  {
+    "tag_id": "0x836c",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "WRITE_PROTECTION_OVERWRITE_VECTOR",
+    "tag_name": "WriteProtectionOverwriteVector",
+    "tag_type": "long"
+  },
+  {
+    "tag_id": "0x836d",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "OVERWRITE_COMMAND_SEQUENCE",
+    "tag_name": "OverwriteCommandSequence",
+    "tag_type": "byteArray"
+  },
+  {
+    "tag_id": "0x837F",
+    "tag_group": "CERT",
+    "tag_symbol": "INSTANTIATION_CONSTRAINTS",
+    "tag_name": "InstantiationConstraints",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8380",
+    "tag_group": "CERT",
+    "tag_symbol": "CHIP_CONSTRAINTS",
+    "tag_name": "ChipConstraints",
+    "tag_type": "map",
+    "tag_aliases": [
+      "ChipConstraintsMap"
+    ]
+  },
+  {
+    "tag_id": "0x8381",
+    "tag_group": "CERT",
+    "tag_symbol": "SUBSYSTEM_AUTHORIZATION_VECTOR",
+    "tag_name": "SubsystemAuthorizationVector",
+    "tag_type": "mapArray"
+  },
+  {
+    "tag_id": "0x8382 (Deprecated)",
+    "tag_group": "CERT",
+    "tag_symbol": "DEBUG_VECTOR_TO_QAD",
+    "tag_name": "DebugVectorToQad",
+    "tag_type": "byteArray"
+  },
+  {
+    "tag_id": "0x8384",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "IMAGE_DESC_HASH_VALUES",
+    "tag_name": "ImageDescHashValues",
+    "tag_type": "map",
+    "tag_aliases": [
+      "HashValues"
+    ]
+  },
+  {
+    "tag_id": "0x8385",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ROM_PATCH_DESCRIPTOR",
+    "tag_name": "RomPatchDescriptor",
+    "tag_type": "mapArray"
+  },
+  {
+    "tag_id": "0x8386",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "IMAGE_DESC_ADDRESS_SIZE",
+    "tag_name": "ImageDescAddressSize",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8388",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SUBSYSTEM_DEBUG_OPTIONS",
+    "tag_name": "SubsystemDebugOptions",
+    "tag_type": "mapArray"
+  },
+  {
+    "tag_id": "0x8389",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "TEST_SIGNED_IMAGE_HASHES",
+    "tag_name": "TestSignedImageHashList",
+    "tag_type": "mapArray"
+  },
+  {
+    "tag_id": "0x838A",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "OEM_TEST_ROOT_CA_CERT_HASHES",
+    "tag_name": "OemTestRootCaHashValues",
+    "tag_type": "map",
+    "tag_aliases": [
+      "OemTestRootCaHashes"
+    ]
+  },
+  {
+    "tag_id": "0x838B",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "FINGERPRINT_HASH",
+    "tag_name": "FingerprintHashValue",
+    "tag_type": "map",
+    "tag_aliases": [
+      "FingerprintHash"
+    ]
+  },
+  {
+    "tag_id": "0x838C",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "OEM_CRASH_DUMP_PUBLIC_KEY",
+    "tag_name": "OemCrashDumpPublicKey",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8390",
+    "tag_group": "CERT",
+    "tag_symbol": "PUBLIC_KEY",
+    "tag_name": "PublicKey",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8400",
+    "tag_group": "CERT",
+    "tag_symbol": "ROOT_KSET_VERSION",
+    "tag_name": "RootKeysetVersion",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8401",
+    "tag_group": "CERT",
+    "tag_symbol": "SOC_HW_VERSION",
+    "tag_name": "SocHardwareVersion",
+    "tag_type": "int",
+    "tag_aliases": [
+      "SocProductId"
+    ]
+  },
+  {
+    "tag_id": "0x8403",
+    "tag_group": "CERT",
+    "tag_symbol": "OEM_ID",
+    "tag_name": "OemIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "OemId"
+    ]
+  },
+  {
+    "tag_id": "0x8404",
+    "tag_group": "CERT",
+    "tag_symbol": "OEM_PROD_ID",
+    "tag_name": "OemProductIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "OemProductId"
+    ]
+  },
+  {
+    "tag_id": "0x8405",
+    "tag_group": "CERT",
+    "tag_symbol": "SOC_LCS",
+    "tag_name": "SocLifeCycleState",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8407",
+    "tag_group": "CERT",
+    "tag_symbol": "SOC_FEATURE_ID",
+    "tag_name": "SocFeatureIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "SocFeatureId"
+    ]
+  },
+  {
+    "tag_id": "0x8408",
+    "tag_group": "CERT",
+    "tag_symbol": "SOC_JTAG_ID",
+    "tag_name": "SocJtagIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "SocJtagId"
+    ]
+  },
+  {
+    "tag_id": "0x8409",
+    "tag_group": "CERT",
+    "tag_symbol": "OEM_LCS",
+    "tag_name": "OemLifeCycleState",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0x8410",
+    "tag_group": "CERT",
+    "tag_symbol": "CURVE_ID",
+    "tag_name": "CurveIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "EcCurveId"
+    ]
+  },
+  {
+    "tag_id": "0x8411",
+    "tag_group": "CERT",
+    "tag_symbol": "PUBLIC_KEY_VALUE",
+    "tag_name": "PublicKeyValue",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "EcPublicKeyValue"
+    ]
+  },
+  {
+    "tag_id": "0x8422",
+    "tag_group": "CERT",
+    "tag_symbol": "SOFTWARE_COMPONENT_ID",
+    "tag_name": "BootSubsystemSoftwareComponentIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "SoftwareComponentIdentifier",
+      "BootSubsystemSoftwareComponentId"
+    ]
+  },
+  {
+    "tag_id": "0x8423",
+    "tag_group": "CERT",
+    "tag_symbol": "ROOT_SIGNING_CA_ID",
+    "tag_name": "RootSigningCaIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "SoftwareSignerRootCaId"
+    ]
+  },
+  {
+    "tag_id": "0x8440",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "HASH_ALGORITHM_ID",
+    "tag_name": "HashAlgorithmIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "HashAlgorithmId"
+    ]
+  },
+  {
+    "tag_id": "0x8441",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "HASH_ARRAY",
+    "tag_name": "HashArray",
+    "tag_type": "byteArray",
+    "tag_aliases": [
+      "HashValuesArray"
+    ]
+  },
+  {
+    "tag_id": "0x8448",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "IMAGE_ADDRESS",
+    "tag_name": "ImageAddress",
+    "tag_type": "long"
+  },
+  {
+    "tag_id": "0x8449",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "IMAGE_SIZE",
+    "tag_name": "ImageSize",
+    "tag_type": "long"
+  },
+  {
+    "tag_id": "0x8450",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SUBSYS_DEBUG_ID",
+    "tag_name": "SubsysIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "DebugSubsystemId"
+    ]
+  },
+  {
+    "tag_id": "0x8451",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SUBSYS_DEBUG_OPTIONS",
+    "tag_name": "SubsysDebugOptions",
+    "tag_type": "int",
+    "tag_aliases": [
+      "DebugSubsystemOptions"
+    ]
+  },
+  {
+    "tag_id": "0x8486",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "HASH_VALUES",
+    "tag_name": "HashValues",
+    "tag_type": "map",
+    "tag_aliases": [
+      "TestSignedImageHashValues"
+    ]
+  },
+  {
+    "tag_id": "0x8487",
+    "tag_group": "CERT",
+    "tag_symbol": "CHIP_UNIQUE_ID",
+    "tag_name": "ChipUniqueIdentifier",
+    "tag_type": "map",
+    "tag_aliases": [
+      "ChipUniqueId"
+    ]
+  },
+  {
+    "tag_id": "0x8488",
+    "tag_group": "CERT",
+    "tag_symbol": "OEM_RC_HASH",
+    "tag_name": "OemRcHash",
+    "tag_type": "map",
+    "tag_aliases": [
+      "OemRootCertificateHash"
+    ]
+  },
+  {
+    "tag_id": "0x8489",
+    "tag_group": "CERT",
+    "tag_symbol": "OEM_BATCH_KEY_HASH",
+    "tag_name": "OemBatchKeyHash",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8510",
+    "tag_group": "CERT",
+    "tag_symbol": "CHIP_PRODUCT_ID",
+    "tag_name": "ProductIdentifier",
+    "tag_type": "int",
+    "tag_aliases": [
+      "ChipProductId"
+    ]
+  },
+  {
+    "tag_id": "0x8511",
+    "tag_group": "CERT",
+    "tag_symbol": "CHIP_SERIAL_NUMBER",
+    "tag_name": "SerialNumber",
+    "tag_type": "intArray",
+    "tag_aliases": [
+      "ChipSerialNumber"
+    ]
+  },
+  {
+    "tag_id": "0x8600",
+    "tag_group": "CONTAINER",
+    "tag_symbol": "BOOT_MANIFEST",
+    "tag_name": "BootManifest",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8601",
+    "tag_group": "CONTAINER",
+    "tag_symbol": "BOOT_MANIFEST_HASH_TABLE",
+    "tag_name": "BootManifestHashTable",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x8602",
+    "tag_group": "CONTAINER",
+    "tag_symbol": "BOOT_MANIFEST_HASH_TABLE_ENTRY",
+    "tag_name": "BootManifestHashTableEntry",
+    "tag_type": "mapArray"
+  },
+  {
+    "tag_id": "0x8603",
+    "tag_group": "CONTAINER",
+    "tag_symbol": "IMAGE_DESCRIPTOR_ARRAY",
+    "tag_name": "ImageDescriptorArray",
+    "tag_type": "mapArray"
+  },
+  {
+    "tag_id": "0x0005",
+    "tag_group": "CMD-CRYPTO",
+    "tag_symbol": "SHA_INIT",
+    "tag_name": "CmdShaInit",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0006",
+    "tag_group": "CMD-CRYPTO",
+    "tag_symbol": "SHA_UPDATE",
+    "tag_name": "CmdShaUpdate",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0007",
+    "tag_group": "CMD-CRYPTO",
+    "tag_symbol": "SHA_FINAL",
+    "tag_name": "CmdShaFinal",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0008",
+    "tag_group": "CMD-CRYPTO",
+    "tag_symbol": "SHA_REGION_UPDATE",
+    "tag_name": "CmdShaRegionUpdate",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0181",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SOC_PROVISIONING",
+    "tag_name": "SvcSocProvisioning",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0182",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "IMAGE_AUTHENTICATION",
+    "tag_name": "SvcImageAuthentication",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0183",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "AUTHENTICATED_DEBUG_REENABLE",
+    "tag_name": "SvcAuthenticatedDebugReenable",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0184",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ROM_PATCH_REQUEST",
+    "tag_name": "SvcRomPatch",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x7185",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SPU_PROVISIONING",
+    "tag_name": "SvcSpuProvisioning",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0186",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEBUG_POLICY",
+    "tag_name": "SvcDebugPolicy",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0187",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SOC_ACTIVATION",
+    "tag_name": "SvcSocActivation",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0188",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DYNAMIC_FUSE_OVERWRITE",
+    "tag_name": "SvcDynamiceFuseOverwrite",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0189",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "STATIC_FUSE_OVERWRITE",
+    "tag_name": "SvcStaticFuseOverwrite",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x018a",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "BOOT_ENTITLEMENT_REQUEST",
+    "tag_name": "SvcBootEntitlement",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x018b",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "TERMINATE_REQUEST",
+    "tag_name": "SvcTerminate",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x018c",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "VERIFY_ATTESTATION_REQUEST",
+    "tag_name": "SvcVerifyAttestation",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x018d",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SOC_TERMINATE_REQUEST",
+    "tag_name": "SvcSocTerminate",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x018E",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "AUTH_PULL_PROV_INIT",
+    "tag_name": "SvcApmSocProvInit",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x018F",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "AUTH_PULL_PROVISION",
+    "tag_name": "SvcApmSocProvision",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0190",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "AUTH_PULL_CERT_CHECK",
+    "tag_name": "SvcApmCertCheck",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0x0191",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CERT_OCE_ECKA_PULL_PROVISION",
+    "tag_name": "SvcCertOceEckaPullProvision",
+    "tag_type": "map"
+  },
+  {
+    "tag_id": "0xC001",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_MINOR_VERSION",
+    "tag_name": "CmdMinorVersion",
+    "tag_type": "data_short"
+  },
+  {
+    "tag_id": "0xC002",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_MAJOR_VERSION",
+    "tag_name": "CmdMajorVersion",
+    "tag_type": "data_short"
+  },
+  {
+    "tag_id": "0xC003",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "STATUS",
+    "tag_name": "CmdStatus",
+    "tag_type": "data_short"
+  },
+  {
+    "tag_id": "0xC011",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "RESERVED_1",
+    "tag_name": "CmdReserved1",
+    "tag_type": "reserve1",
+    "tag_repeats": true
+  },
+  {
+    "tag_id": "0xC012",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "RESERVED_2",
+    "tag_name": "CmdReserved2",
+    "tag_type": "reserve2",
+    "tag_repeats": true
+  },
+  {
+    "tag_id": "0xC013",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "RESERVED_3",
+    "tag_name": "CmdReserved3",
+    "tag_type": "reserve3",
+    "tag_repeats": true
+  },
+  {
+    "tag_id": "0xC014",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "RESERVED_4",
+    "tag_name": "CmdReserved4",
+    "tag_type": "reserve4",
+    "tag_repeats": true
+  },
+  {
+    "tag_id": "0xC015",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CONSTLEN_4",
+    "tag_name": "CmdConstLen4",
+    "tag_type": "int",
+    "tag_value": "0x00040000",
+    "tag_repeats": true
+  },
+  {
+    "tag_id": "0xC020",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ADDRESS",
+    "tag_name": "CmdAddress",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0xC021",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "LENGTH",
+    "tag_name": "CmdLength",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0xC022",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "INFRA_NONCE",
+    "tag_name": "CmdInfraNonce",
+    "tag_type": "data_byteArray",
+    "tag_type_length": 32
+  },
+  {
+    "tag_id": "0xC023",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SOC_NONCE",
+    "tag_name": "CmdSocNonce",
+    "tag_type": "data_byteArray",
+    "tag_type_length": 32
+  },
+  {
+    "tag_id": "0xC024",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "INITIAL_VECTOR",
+    "tag_name": "CmdInitialVector",
+    "tag_type": "data_byteArray",
+    "tag_type_length": 12
+  },
+  {
+    "tag_id": "0xC025",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SIGNING_ALGORITHM_ID",
+    "tag_name": "CmdSigningAlgorithmId",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC026",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_SIGNATURE",
+    "tag_name": "CmdSignature",
+    "tag_type": "data_byteArray"
+  },
+  {
+    "tag_id": "0xC027",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "ENCRYPTED_COMMAND_SEQUENCE",
+    "tag_name": "EncryptedCommandSequence",
+    "tag_type": "data_byteArray"
+  },
+  {
+    "tag_id": "0xC028",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "AEAD_MAC",
+    "tag_name": "AeadMac",
+    "tag_type": "data_byteArray",
+    "tag_type_length": 16
+  },
+  {
+    "tag_id": "0xC029",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CERT_LEN",
+    "tag_name": "CertLen",
+    "tag_type": "data_short"
+  },
+  {
+    "tag_id": "0xC02A",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CERT_OFFSET",
+    "tag_name": "CertOffset",
+    "tag_type": "data_short"
+  },
+  {
+    "tag_id": "0xC050",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SHA_MODE",
+    "tag_name": "ShaMode",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC051",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "SHA_REGION_ID",
+    "tag_name": "ShaRegionId",
+    "tag_type": "data_short"
+  },
+  {
+    "tag_id": "0xC101",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CIPHER_SUITE",
+    "tag_name": "CipherSuite",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC102",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "FAMILY_KEY_SET",
+    "tag_name": "FamilyKeySet",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC103",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DERIVATION_KEY_VERSION",
+    "tag_name": "DerivationKeyVersion",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC104",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "DEVELOPMENT_MODE",
+    "tag_name": "DevelopmentMode",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC201",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_OEM_ID",
+    "tag_name": "CmdOemId",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0xC202",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_MODEL_ID",
+    "tag_name": "CmdModelId",
+    "tag_type": "int"
+  },
+  {
+    "tag_id": "0xC301",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_DEBUG_OPTIONS",
+    "tag_name": "CmdDebugOptions",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC501",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "APPLIANCE_EPHEMERAL_KEY",
+    "tag_name": "ApplianceEphemeralKey",
+    "tag_type": "data_byteArray"
+  },
+  {
+    "tag_id": "0xC601",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CURVE_IDENTIFIER",
+    "tag_name": "CurveIdentifierDataOnly",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xC701",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_OPERATIONAL_MODE",
+    "tag_name": "CmdOperationalMode",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xFFFD",
+    "tag_group": "CERT",
+    "tag_symbol": "CERT_TODO",
+    "tag_name": "CertTodo",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xFFFE",
+    "tag_group": "CMD-CRYPTO",
+    "tag_symbol": "CMD_CRYPTO_TODO",
+    "tag_name": "CmdCryptoTodo",
+    "tag_type": "data_byte"
+  },
+  {
+    "tag_id": "0xFFFF",
+    "tag_group": "CMD-SVC",
+    "tag_symbol": "CMD_SVC_TODO",
+    "tag_name": "CmdSvcTodo",
+    "tag_type": "data_byte"
+  }
+]
